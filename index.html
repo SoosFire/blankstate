@@ -955,47 +955,6 @@
     opacity: 0;
   }
 
-  /* ─── CUSTOM CURSOR (1) ─── */
-  .cursor {
-    position: fixed;
-    width: 16px;
-    height: 16px;
-    border: 1.5px solid var(--fg);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease, opacity 0.25s ease;
-    opacity: 0;
-    mix-blend-mode: difference;
-  }
-  .cursor.visible { opacity: 1; }
-  .cursor.hover {
-    width: 48px;
-    height: 48px;
-    background: rgba(238,235,228,0.08);
-    border-color: rgba(238,235,228,0.4);
-  }
-  .cursor.clicking {
-    width: 12px;
-    height: 12px;
-  }
-  .cursor.text {
-    width: 3px;
-    height: 24px;
-    border-radius: 2px;
-    border: none;
-    background: var(--fg);
-    opacity: 0.6;
-    mix-blend-mode: normal;
-  }
-  @media (pointer: coarse) { .cursor { display: none; } }
-  /* Hide default cursor on desktop */
-  @media (pointer: fine) {
-    *, *::before, *::after {
-      cursor: none !important;
-    }
-  }
 
   /* ─── NAV SHRINK ON SCROLL (2) ─── */
   nav {
@@ -1082,8 +1041,6 @@
   </svg>
 </div>
 
-<!-- Custom cursor -->
-<div class="cursor" id="cursor" aria-hidden="true"></div>
 <!-- Scroll progress bar -->
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
@@ -1510,37 +1467,7 @@
     }, { passive: true });
   }
 
-  // (1) Custom cursor
-  const cursor = document.getElementById('cursor');
-  if (cursor && window.matchMedia('(pointer: fine)').matches) {
-    let cx = 0, cy = 0, tx = 0, ty = 0;
-    document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; cursor.classList.add('visible'); });
-    document.addEventListener('mouseleave', () => cursor.classList.remove('visible'));
-    document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-    document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
-    // Smooth follow
-    (function loop() {
-      cx += (tx - cx) * 0.15;
-      cy += (ty - cy) * 0.15;
-      cursor.style.left = cx + 'px';
-      cursor.style.top = cy + 'px';
-      requestAnimationFrame(loop);
-    })();
-    // Scale up on hoverable elements
-    const hoverEls = 'a, button, .work-card, .service-card, .nav-cta, .btn-primary, .btn-secondary';
-    document.querySelectorAll(hoverEls).forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-    // Text cursor on inputs
-    const textEls = 'input, textarea, select';
-    document.querySelectorAll(textEls).forEach(el => {
-      el.addEventListener('mouseenter', () => { cursor.classList.remove('hover'); cursor.classList.add('text'); });
-      el.addEventListener('mouseleave', () => cursor.classList.remove('text'));
-    });
-  }
-
-  // (2) Nav shrink on scroll
+  // (1) Nav shrink on scroll
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
     if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
