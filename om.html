@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om os — Revise</title>
+<meta name="description" content="Revise er et bureau for digital design og udvikling. Vi kombinerer strategisk tænkning med teknisk ekspertise.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect x='6' y='6' width='68' height='68' fill='%23ffffff' stroke='%230a0a0a' stroke-width='4' rx='5'/><polygon points='74,6 74,34 46,6' fill='%230a0a0a' opacity='0.25'/><line x1='46' y1='6' x2='74' y2='34' stroke='%230a0a0a' stroke-width='2.5' opacity='0.6'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.value-item h3 { font-family: var(--font-display); font-weight: 600; font-size: 20px; margin-bottom: 10px; letter-spacing: -0.3px; }
+.value-item p { font-size: 15px; opacity: 0.4; line-height: 1.8; }
+@media (max-width: 768px) { .values-grid { grid-template-columns: 1fr; gap: 36px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="68" height="68" fill="none" stroke="#eeebe4" stroke-width="2.8" rx="5"/>
+      <polygon points="74,6 74,34 46,6" fill="#eeebe4" opacity="0.18"/>
+      <line x1="46" y1="6" x2="74" y2="34" stroke="#eeebe4" stroke-width="2" opacity="0.45"/>
+    </svg>
+    <span>revise</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ydelser.html">Ydelser</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="om.html" class="current">Om os</a></li>
+  </ul>
+  <a href="kontakt.html" class="nav-cta">Kontakt os</a>
+  <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Forside</a>
+  <a href="ydelser.html" onclick="closeMenu()">Ydelser</a>
+  <a href="cases.html" onclick="closeMenu()">Cases</a>
+  <a href="om.html" onclick="closeMenu()">Om os</a>
+  <a href="kontakt.html" class="mobile-cta" onclick="closeMenu()">Kontakt os</a>
+</div>
+
+<!-- Page Head -->
+<section class="page-head" style="border-top: none;">
+  <div class="reveal">
+    <p class="section-label">Om os</p>
+    <h1 class="section-title">Strategi, design<br>og teknologi.</h1>
+    <p class="section-desc">Vi bygger digitale produkter der performer — p&aring; tv&aelig;rs af brancher og markeder.</p>
+  </div>
+</section>
+
+<!-- About Content -->
+<section>
+  <div class="about-content reveal">
+    <div class="about-text">
+      <p>Revise er et etableret bureau for digital design og udvikling. Vi kombinerer strategisk t&aelig;nkning med teknisk ekspertise for at skabe digitale produkter der performer — p&aring; tv&aelig;rs af brancher og markeder.</p>
+      <p>Vi arbejder med virksomheder der forventer mere end en standardleverance. Hvert projekt f&aring;r et dedikeret team af designere og udviklere der forst&aring;r forretningen bag interfacet.</p>
+      <p>Vores tilgang er kompromisl&oslash;s. Vi v&aelig;lger den rigtige teknologi til hvert projekt, designer hvert system fra bunden, og f&oslash;lger op l&aelig;nge efter launch.</p>
+    </div>
+    <div class="about-stats">
+      <div><div class="stat-number">4+</div><div class="stat-label">&Aring;rs erfaring</div></div>
+      <div><div class="stat-number">100%</div><div class="stat-label">Custom design</div></div>
+      <div><div class="stat-number">24h</div><div class="stat-label">Responstid</div></div>
+      <div><div class="stat-number">&infin;</div><div class="stat-label">Ambitioner</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section>
+  <div class="reveal">
+    <p class="section-label">Vores tilgang</p>
+    <h2 class="section-title">Hvorfor v&aelig;lge Revise?</h2>
+  </div>
+  <div class="values-grid reveal">
+    <div class="value-item">
+      <h3>Ingen templates</h3>
+      <p>Hvert projekt designes fra bunden. Vi bruger ikke WordPress-themes eller f&aelig;rdige skabeloner — dit brand fortjener bedre.</p>
+    </div>
+    <div class="value-item">
+      <h3>Personlig kontakt</h3>
+      <p>Du taler direkte med dem der bygger din side. Ingen mellemled, ingen misforst&aring;elser — bare klar kommunikation.</p>
+    </div>
+    <div class="value-item">
+      <h3>Moderne teknologi</h3>
+      <p>Vi bygger med de nyeste og bedste teknologier. Din side er hurtig, sikker og klar til fremtiden fra dag &eacute;t.</p>
+    </div>
+    <div class="value-item">
+      <h3>Langsigtet support</h3>
+      <p>Vi forsvinder ikke efter launch. L&oslash;bende opdateringer, sikkerhedspatches og indholds&aelig;ndringer er en del af pakken.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="reveal">
+    <p class="section-label">Kontakt</p>
+    <h2 class="section-title">Klar til at starte?</h2>
+    <a href="kontakt.html" class="btn-primary">Kontakt os</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="68" height="68" fill="none" stroke="#eeebe4" stroke-width="2.4" rx="4"/>
+      <polygon points="74,6 74,34 46,6" fill="#eeebe4" opacity="0.18"/>
+      <line x1="46" y1="6" x2="74" y2="34" stroke="#eeebe4" stroke-width="1.8" opacity="0.45"/>
+    </svg>
+    <span>&copy; 2026 Revise. Alle rettigheder forbeholdes.</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#">LinkedIn</a></li>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="mailto:contact@revise.dk">Email</a></li>
+  </ul>
+</footer>
+
+<script>
+// Scroll reveal
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Nav shrink
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Mobile hamburger
+const toggle = document.querySelector('.mobile-toggle');
+const mobileMenu = document.getElementById('mobileMenu');
+if (toggle && mobileMenu) {
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+}
+function closeMenu() {
+  toggle.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Stat counter animation
+const statObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const text = el.textContent.trim();
+      statObs.unobserve(el);
+      // Only animate numeric values
+      const match = text.match(/^(\d+)(.*)$/);
+      if (match) {
+        const target = parseInt(match[1]);
+        const suffix = match[2];
+        let current = 0;
+        const step = Math.ceil(target / 40);
+        const interval = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(interval);
+          }
+          el.textContent = current + suffix;
+        }, 30);
+      }
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.stat-number').forEach(el => statObs.observe(el));
+</script>
+</body>
+</html>

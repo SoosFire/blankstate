@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cases — Revise</title>
+<meta name="description" content="Se vores seneste projekter. Fra fintech platforme til e-commerce — hvert projekt er unikt.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect x='6' y='6' width='68' height='68' fill='%23ffffff' stroke='%230a0a0a' stroke-width='4' rx='5'/><polygon points='74,6 74,34 46,6' fill='%230a0a0a' opacity='0.25'/><line x1='46' y1='6' x2='74' y2='34' stroke='%230a0a0a' stroke-width='2.5' opacity='0.6'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="68" height="68" fill="none" stroke="#eeebe4" stroke-width="2.8" rx="5"/>
+      <polygon points="74,6 74,34 46,6" fill="#eeebe4" opacity="0.18"/>
+      <line x1="46" y1="6" x2="74" y2="34" stroke="#eeebe4" stroke-width="2" opacity="0.45"/>
+    </svg>
+    <span>revise</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ydelser.html">Ydelser</a></li>
+    <li><a href="cases.html" class="current">Cases</a></li>
+    <li><a href="om.html">Om os</a></li>
+  </ul>
+  <a href="kontakt.html" class="nav-cta">Kontakt os</a>
+  <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Forside</a>
+  <a href="ydelser.html" onclick="closeMenu()">Ydelser</a>
+  <a href="cases.html" onclick="closeMenu()">Cases</a>
+  <a href="om.html" onclick="closeMenu()">Om os</a>
+  <a href="kontakt.html" class="mobile-cta" onclick="closeMenu()">Kontakt os</a>
+</div>
+
+<!-- Page Head -->
+<section class="page-head">
+  <div class="reveal">
+    <p class="section-label">Cases</p>
+    <h1 class="section-title">Projekter der taler<br>for sig selv.</h1>
+    <p class="section-desc">Et udpluk af vores seneste arbejde. Hvert projekt er unikt — ligesom de virksomheder vi samarbejder med.</p>
+  </div>
+</section>
+
+<!-- Work Grid -->
+<section class="work-section">
+  <div class="work-grid reveal">
+    <a href="projects/capital/index.html" class="work-card">
+      <iframe src="projects/capital/index.html" tabindex="-1" loading="lazy" aria-hidden="true"></iframe>
+      <svg class="fold-deco" viewBox="0 0 120 120" width="120"><polygon points="120,0 120,48 72,0" fill="#eeebe4" opacity="0.4"/><line x1="72" y1="0" x2="120" y2="48" stroke="#eeebe4" stroke-width="1" opacity="0.3"/></svg>
+      <span class="work-tag">Brand &middot; Digital Platform</span>
+      <h3>Capital</h3>
+    </a>
+    <a href="projects/northwind/index.html" class="work-card">
+      <iframe src="projects/northwind/index.html" tabindex="-1" loading="lazy" aria-hidden="true"></iframe>
+      <svg class="fold-deco" viewBox="0 0 120 120" width="120"><polygon points="120,0 120,48 72,0" fill="#eeebe4" opacity="0.4"/><line x1="72" y1="0" x2="120" y2="48" stroke="#eeebe4" stroke-width="1" opacity="0.3"/></svg>
+      <span class="work-tag">Brand &middot; E-commerce</span>
+      <h3>Northwind</h3>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="reveal">
+    <p class="section-label">Kontakt</p>
+    <h2 class="section-title">Har du et projekt i tankerne?</h2>
+    <p class="section-desc">Fort&aelig;l os om dit projekt — vi vender tilbage inden for 24 timer.</p>
+    <a href="kontakt.html" class="btn-primary">Kontakt os</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="68" height="68" fill="none" stroke="#eeebe4" stroke-width="2.4" rx="4"/>
+      <polygon points="74,6 74,34 46,6" fill="#eeebe4" opacity="0.18"/>
+      <line x1="46" y1="6" x2="74" y2="34" stroke="#eeebe4" stroke-width="1.8" opacity="0.45"/>
+    </svg>
+    <span>&copy; 2026 Revise. Alle rettigheder forbeholdes.</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#">LinkedIn</a></li>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="mailto:contact@revise.dk">Email</a></li>
+  </ul>
+</footer>
+
+<script>
+// Scroll reveal
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Nav shrink
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Mobile hamburger
+const toggle = document.querySelector('.mobile-toggle');
+const mobileMenu = document.getElementById('mobileMenu');
+if (toggle && mobileMenu) {
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+}
+function closeMenu() {
+  toggle.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Page transition on work-card click
+document.querySelectorAll('.work-card').forEach(card => {
+  card.addEventListener('click', e => {
+    e.preventDefault();
+    const href = card.getAttribute('href');
+    if (!href) return;
+    document.body.classList.add('transitioning');
+    setTimeout(() => { window.location.href = href; }, 300);
+  });
+});
+</script>
+</body>
+</html>

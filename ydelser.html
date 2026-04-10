@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ydelser — Revise</title>
+<meta name="description" content="Webdesign, udvikling, SEO og hosting. Se alle vores ydelser og vælg den pakke der passer til dit projekt.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect x='6' y='6' width='68' height='68' fill='%23ffffff' stroke='%230a0a0a' stroke-width='4' rx='5'/><polygon points='74,6 74,34 46,6' fill='%230a0a0a' opacity='0.25'/><line x1='46' y1='6' x2='74' y2='34' stroke='%230a0a0a' stroke-width='2.5' opacity='0.6'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="68" height="68" fill="none" stroke="#eeebe4" stroke-width="2.8" rx="5"/>
+      <polygon points="74,6 74,34 46,6" fill="#eeebe4" opacity="0.18"/>
+      <line x1="46" y1="6" x2="74" y2="34" stroke="#eeebe4" stroke-width="2" opacity="0.45"/>
+    </svg>
+    <span>revise</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ydelser.html" class="current">Ydelser</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="om.html">Om os</a></li>
+  </ul>
+  <a href="kontakt.html" class="nav-cta">Kontakt os</a>
+  <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Forside</a>
+  <a href="ydelser.html" onclick="closeMenu()">Ydelser</a>
+  <a href="cases.html" onclick="closeMenu()">Cases</a>
+  <a href="om.html" onclick="closeMenu()">Om os</a>
+  <a href="kontakt.html" class="mobile-cta" onclick="closeMenu()">Kontakt os</a>
+</div>
+
+<!-- Page Head -->
+<section class="page-head">
+  <div class="reveal">
+    <p class="section-label">Ydelser</p>
+    <h1 class="section-title">Alt du har brug for.<br>Intet du ikke har.</h1>
+    <p class="section-desc">Vi tilbyder en komplet pakke fra design til deployment — altid med fokus på kvalitet, hastighed og dit brands identitet.</p>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="services-section">
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40"><rect x="2" y="2" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5" rx="4"/><line x1="2" y1="12" x2="38" y2="12" stroke="currentColor" stroke-width="1"/><rect x="8" y="18" width="12" height="8" fill="none" stroke="currentColor" stroke-width="1" rx="1"/></svg>
+      <h3>Webdesign</h3>
+      <p>Skr&aelig;ddersyede designs der reflekterer dit brand. Ingen templates — alt bygges fra bunden med din vision i centrum.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40"><polyline points="12,14 4,22 12,30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><polyline points="28,14 36,22 28,30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="22" y1="10" x2="18" y2="34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>Udvikling</h3>
+      <p>Clean code, hurtige load-tider, og responsivt design. Vi bygger med moderne teknologier der skalerer med din forretning.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20,4 A16,16 0 0,1 36,20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="20" r="3" fill="currentColor" opacity="0.4"/></svg>
+      <h3>SEO &amp; Performance</h3>
+      <p>Optimeret til s&oslash;gemaskiner fra dag &eacute;t. Vi s&oslash;rger for at din side er hurtig, tilg&aelig;ngelig og synlig i s&oslash;geresultaterne.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40"><rect x="8" y="2" width="24" height="36" fill="none" stroke="currentColor" stroke-width="1.5" rx="4"/><line x1="16" y1="32" x2="24" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>Responsivt Design</h3>
+      <p>Din side ser perfekt ud p&aring; alle enheder — desktop, tablet og mobil. Ingen kompromiser p&aring; brugeroplevelsen.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40"><path d="M20,4 L36,14 L36,28 L20,38 L4,28 L4,14 Z" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="4" x2="20" y2="38" stroke="currentColor" stroke-width="1" opacity="0.3"/><line x1="4" y1="14" x2="36" y2="14" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>
+      <h3>Hosting &amp; Drift</h3>
+      <p>Vi tager os af den tekniske drift, s&aring; du kan fokusere p&aring; din forretning. Sikker, hurtig og p&aring;lidelig hosting.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40"><path d="M8,32 L16,18 L22,26 L28,12 L34,20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="36" x2="36" y2="36" stroke="currentColor" stroke-width="1" opacity="0.3"/></svg>
+      <h3>Vedligeholdelse</h3>
+      <p>L&oslash;bende opdateringer, sikkerhedspatches og indholds&aelig;ndringer. Vi holder din side frisk og sikker over tid.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process-section">
+  <div class="reveal">
+    <p class="section-label">Process</p>
+    <h2 class="section-title">Fra id&eacute; til launch<br>i fire trin.</h2>
+    <p class="section-desc">Vores proces er transparent og struktureret — du ved altid pr&aelig;cis hvor vi er, og hvad der sker n&aelig;st.</p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <span class="step-num">01</span>
+      <h3>Discover</h3>
+      <p>Vi l&aelig;rer din forretning at kende. M&aring;lgruppe, konkurrenter, m&aring;l — alt der former den rigtige l&oslash;sning.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">02</span>
+      <h3>Design</h3>
+      <p>Wireframes og visuelle koncepter. Du ser og godkender designet f&oslash;r en eneste linje kode bliver skrevet.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">03</span>
+      <h3>Develop</h3>
+      <p>Vi bygger din side med clean code, hurtige load-tider og responsivt design p&aring; tv&aelig;rs af alle enheder.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">04</span>
+      <h3>Deliver</h3>
+      <p>Test, lancering og overdragelse. Vi s&oslash;rger for en smooth launch og st&aring;r klar til support bagefter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing-section">
+  <div class="reveal">
+    <p class="section-label">Priser</p>
+    <h2 class="section-title">Enkel priss&aelig;tning.<br>Ingen skjulte gebyrer.</h2>
+    <p class="section-desc">V&aelig;lg den pakke der passer til dit projekt. Alle priser er eks. moms.</p>
+  </div>
+  <div class="pricing-grid reveal">
+    <div class="pricing-card">
+      <h3>Basis</h3>
+      <p class="pricing-price">Fra 8.995 kr.</p>
+      <p class="pricing-desc">Perfekt til sm&aring; virksomheder der har brug for en professionel online tilstedev&aelig;relse.</p>
+      <ul class="pricing-features">
+        <li>Op til 5 sider</li>
+        <li>Responsivt design</li>
+        <li>Kontaktformular</li>
+        <li>Basis SEO</li>
+        <li>1 m&aring;neds support</li>
+      </ul>
+      <a href="kontakt.html" class="pricing-cta">Kom i gang</a>
+    </div>
+    <div class="pricing-card featured">
+      <h3>Standard</h3>
+      <p class="pricing-price">Fra 17.995 kr.</p>
+      <p class="pricing-desc">Til virksomheder der vil skille sig ud med et unikt design og avanceret funktionalitet.</p>
+      <ul class="pricing-features">
+        <li>Op til 12 sider</li>
+        <li>Custom design</li>
+        <li>CMS integration</li>
+        <li>Avanceret SEO</li>
+        <li>Performance optimering</li>
+        <li>3 m&aring;neders support</li>
+      </ul>
+      <a href="kontakt.html" class="pricing-cta">Kom i gang</a>
+    </div>
+    <div class="pricing-card">
+      <h3>Premium</h3>
+      <p class="pricing-price">Fra 34.995 kr.</p>
+      <p class="pricing-desc">Den komplette l&oslash;sning til virksomheder med store ambitioner og komplekse behov.</p>
+      <ul class="pricing-features">
+        <li>Ubegr&aelig;nset sider</li>
+        <li>Skr&aelig;ddersyet design</li>
+        <li>E-commerce / webapp</li>
+        <li>API integrationer</li>
+        <li>Hosting &amp; drift</li>
+        <li>12 m&aring;neders support</li>
+      </ul>
+      <a href="kontakt.html" class="pricing-cta">Kom i gang</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="reveal">
+    <p class="section-label">Kontakt</p>
+    <h2 class="section-title">Klar til at komme i gang?</h2>
+    <p class="section-desc">Fort&aelig;l os om dit projekt — vi vender tilbage inden for 24 timer.</p>
+    <a href="kontakt.html" class="btn-primary">Kontakt os</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="68" height="68" fill="none" stroke="#eeebe4" stroke-width="2.4" rx="4"/>
+      <polygon points="74,6 74,34 46,6" fill="#eeebe4" opacity="0.18"/>
+      <line x1="46" y1="6" x2="74" y2="34" stroke="#eeebe4" stroke-width="1.8" opacity="0.45"/>
+    </svg>
+    <span>&copy; 2026 Revise. Alle rettigheder forbeholdes.</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#">LinkedIn</a></li>
+    <li><a href="#">Instagram</a></li>
+    <li><a href="mailto:contact@revise.dk">Email</a></li>
+  </ul>
+</footer>
+
+<script>
+// Scroll reveal
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Nav shrink
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Mobile hamburger
+const toggle = document.querySelector('.mobile-toggle');
+const mobileMenu = document.getElementById('mobileMenu');
+if (toggle && mobileMenu) {
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+}
+function closeMenu() {
+  toggle.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Cursor spotlight on service cards
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+</script>
+</body>
+</html>
