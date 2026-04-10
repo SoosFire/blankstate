@@ -11,6 +11,7 @@
 <meta property="og:url" content="https://revise.dk">
 <meta property="og:image" content="https://revise.dk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0a0a">
 <link rel="canonical" href="https://revise.dk/">
 <script type="application/ld+json">
 {
@@ -148,7 +149,7 @@
 <section class="hero">
   <p class="hero-overline">Design &middot; Develop &middot; Deliver</p>
   <h1>Vi bygger websites<br>der gør indtryk.</h1>
-  <p class="hero-sub">Fra blank side til færdig løsning. Vi designer og udvikler moderne hjemmesider der skiller sig ud og skaber resultater for din virksomhed.</p>
+  <p class="hero-sub">Din online tilstedeværelse fortjener en revision. Vi designer og udvikler moderne hjemmesider der skiller sig ud og skaber resultater for din virksomhed.</p>
   <div class="hero-cta-row">
     <a href="kontakt.html" class="btn-primary">Start dit projekt</a>
     <a href="cases.html" class="btn-secondary">Se vores arbejde</a>
@@ -166,17 +167,9 @@
   </div>
 </section>
 
-<!-- ─── SOCIAL PROOF ─── -->
+<!-- ─── VALUE STRIP ─── -->
 <div class="proof-strip">
-  <p>Betroet af virksomheder inden for finans, retail og teknologi</p>
-  <div class="proof-logos">
-    <div class="proof-logo"><div class="block" style="width:80px;height:16px"></div></div>
-    <div class="proof-logo"><div class="block" style="width:22px;height:22px;border-radius:50%"></div><div class="block" style="width:60px;height:11px"></div></div>
-    <div class="proof-logo"><div class="block" style="width:90px;height:14px"></div></div>
-    <div class="proof-logo"><div class="block" style="width:18px;height:18px;border-radius:3px"></div><div class="block" style="width:68px;height:11px"></div></div>
-    <div class="proof-logo"><div class="block" style="width:84px;height:16px"></div></div>
-    <div class="proof-logo"><div class="block" style="width:26px;height:26px;border-radius:5px"></div><div class="block" style="width:52px;height:11px"></div></div>
-  </div>
+  <p>Skræddersyet design · Moderne teknologi · Hurtig levering · Personlig kontakt</p>
 </div>
 
 <!-- ─── SERVICES TEASER (3 cards) ─── -->
@@ -273,70 +266,20 @@
     <span>&copy; 2026 Revise. Alle rettigheder forbeholdes.</span>
   </div>
   <ul class="footer-links">
-    <li><a href="#">LinkedIn</a></li>
-    <li><a href="#">Instagram</a></li>
-    <li><a href="mailto:kontakt@revise.dk">Email</a></li>
+    <li><a href="mailto:kontakt@revise.dk">kontakt@revise.dk</a></li>
+    <li><a href="tel:+45XXXXXXXX">+45 XX XX XX XX</a></li>
   </ul>
 </footer>
 
 <!-- ─── SCRIPTS ─── -->
+<script src="app.js"></script>
 <script>
   // Page load animation
   const loader = document.getElementById('loader');
   if (loader) {
-    setTimeout(() => loader.classList.add('done'), 1800);
-    setTimeout(() => loader.remove(), 2400);
+    setTimeout(() => loader.classList.add('done'), 600);
+    setTimeout(() => loader.remove(), 1100);
   }
-
-  // Scroll reveal
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-  // Nav shrink on scroll
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  // Mobile hamburger menu
-  const toggle = document.querySelector('.mobile-toggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (toggle && mobileMenu) {
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-    });
-  }
-  function closeMenu() {
-    toggle.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  // Cursor spotlight on service cards
-  document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-    });
-  });
-
-  // Smooth page transition on work-card clicks
-  document.querySelectorAll('.work-card').forEach(card => {
-    card.addEventListener('click', e => {
-      e.preventDefault();
-      const href = card.getAttribute('href');
-      if (!href) return;
-      document.body.classList.add('transitioning');
-      setTimeout(() => { window.location.href = href; }, 300);
-    });
-  });
 
   // Hide scroll hint after scrolling
   const scrollHint = document.querySelector('.scroll-hint');

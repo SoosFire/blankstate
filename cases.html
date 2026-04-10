@@ -12,6 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://revise.dk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0a0a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect x='6' y='6' width='68' height='68' fill='%23ffffff' stroke='%230a0a0a' stroke-width='4' rx='5'/><polygon points='74,6 74,34 46,6' fill='%230a0a0a' opacity='0.25'/><line x1='46' y1='6' x2='74' y2='34' stroke='%230a0a0a' stroke-width='2.5' opacity='0.6'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -92,53 +93,11 @@
     <span>&copy; 2026 Revise. Alle rettigheder forbeholdes.</span>
   </div>
   <ul class="footer-links">
-    <li><a href="#">LinkedIn</a></li>
-    <li><a href="#">Instagram</a></li>
-    <li><a href="mailto:kontakt@revise.dk">Email</a></li>
+    <li><a href="mailto:kontakt@revise.dk">kontakt@revise.dk</a></li>
+    <li><a href="tel:+45XXXXXXXX">+45 XX XX XX XX</a></li>
   </ul>
 </footer>
 
-<script>
-// Scroll reveal
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-// Nav shrink
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-  if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
-
-// Mobile hamburger
-const toggle = document.querySelector('.mobile-toggle');
-const mobileMenu = document.getElementById('mobileMenu');
-if (toggle && mobileMenu) {
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-  });
-}
-function closeMenu() {
-  toggle.classList.remove('open');
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// Page transition on work-card click
-document.querySelectorAll('.work-card').forEach(card => {
-  card.addEventListener('click', e => {
-    e.preventDefault();
-    const href = card.getAttribute('href');
-    if (!href) return;
-    document.body.classList.add('transitioning');
-    setTimeout(() => { window.location.href = href; }, 300);
-  });
-});
-</script>
+<script src="app.js"></script>
 </body>
 </html>
