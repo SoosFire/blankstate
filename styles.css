@@ -219,7 +219,7 @@ nav.scrolled {
   font-size: 10px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  opacity: 0.4;
+  opacity: 0.5;
   margin-bottom: 16px;
 }
 
@@ -234,7 +234,7 @@ nav.scrolled {
 
 .section-desc {
   font-size: 17px;
-  opacity: 0.4;
+  opacity: 0.5;
   max-width: 560px;
   line-height: 1.8;
   margin-bottom: 64px;
