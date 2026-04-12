@@ -3,927 +3,443 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hansen VVS — Autoriseret VVS-installatør i Vejle, Børkop, Jelling og Give. 25+ års erfaring. Døgnåben akut service, badeværelser, varmepumper og kloakarbejde.">
+<meta name="description" content="Hansen VVS — Autoriseret VVS-installatør i Vejle, Børkop, Jelling og Give. Døgnåben akut service. Ring 75 82 34 19.">
 <title>VVS-installatør i Vejle — Hansen VVS | Akut service 24/7</title>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Hansen VVS & Blikkenslager","image":"https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800","@id":"","url":"https://hansenvvs.dk","telephone":"+4575823419","address":{"@type":"PostalAddress","streetAddress":"Horsensvej 42","addressLocality":"Vejle","postalCode":"7100","addressCountry":"DK"},"geo":{"@type":"GeoCoordinates","latitude":55.7113,"longitude":9.5364},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"16:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"12:00"}],"priceRange":"$$","areaServed":["Vejle","Børkop","Jelling","Give","Egtved","Bredsten"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"47"}}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Hansen VVS & Blikkenslager","telephone":"+4575823419","address":{"@type":"PostalAddress","streetAddress":"Horsensvej 42","addressLocality":"Vejle","postalCode":"7100","addressCountry":"DK"},"areaServed":["Vejle","Børkop","Jelling","Give","Egtved"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"47"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#0d6b5e;--teal-dark:#095249;--teal-light:#e6f5f2;
+  --amber:#d4853b;--amber-light:#fdf3e8;
+  --bg:#faf9f7;--white:#ffffff;--border:#e8e4de;
+  --text:#2c2c2c;--text-mid:#5a5a5a;--text-light:#8a8a8a;
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'DM Sans',-apple-system,sans-serif;
+  --max:1140px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
 
-:root {
-  --navy: #0c1b2e;
-  --navy-mid: #132840;
-  --navy-light: #1a3355;
-  --cream: #f5f0e8;
-  --cream-dark: #e8e0d0;
-  --warm: #c9a96e;
-  --warm-light: #d4bb8a;
-  --warm-glow: rgba(201,169,110,0.12);
-  --white: #ffffff;
-  --text-dark: #0c1b2e;
-  --text-mid: #4a5568;
-  --text-light: rgba(255,255,255,0.65);
-  --serif: 'DM Serif Display', Georgia, serif;
-  --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-}
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);height:68px;display:flex;align-items:center;padding:0 clamp(20px,4vw,48px)}
+.nav-inner{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--text);text-decoration:none}
+.nav-brand span{color:var(--teal)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:14px;color:var(--text-mid);text-decoration:none;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-tel{font-size:14px;color:var(--text);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:6px}
+.nav-cta{background:var(--teal);color:#fff;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--teal-dark)}
 
-html { scroll-behavior: smooth; }
+/* ── HERO ── */
+.hero{padding:128px clamp(20px,4vw,48px) 80px;background:var(--white)}
+.hero-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hero-trust{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.hero-stars{color:#f59e0b;font-size:16px;letter-spacing:1px}
+.hero-trust-text{font-size:13px;color:var(--text-mid)}
+.hero h1{font-family:var(--serif);font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1.15;letter-spacing:-.5px;margin-bottom:20px}
+.hero h1 .teal{color:var(--teal)}
+.hero-desc{font-size:16px;color:var(--text-mid);line-height:1.8;margin-bottom:32px;max-width:460px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:all .2s}
+.btn-primary:hover{background:var(--teal-dark)}
+.btn-secondary{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--text);padding:14px 24px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal)}
+.hero-badges{display:flex;gap:20px;flex-wrap:wrap}
+.hero-badge{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-mid)}
+.hero-badge svg{color:var(--teal);flex-shrink:0}
+.hero-img-wrap{position:relative}
+.hero-img{border-radius:16px;overflow:hidden;aspect-ratio:4/3}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-quote{position:absolute;bottom:-20px;left:20px;right:20px;background:var(--white);border-radius:12px;padding:20px;box-shadow:0 4px 24px rgba(0,0,0,.08);border:1px solid var(--border)}
+.hero-quote p{font-size:14px;font-style:italic;color:var(--text-mid);line-height:1.6;margin-bottom:8px}
+.hero-quote-author{font-size:12px;font-weight:600;color:var(--text)}
 
-body {
-  font-family: var(--sans);
-  background: var(--cream);
-  color: var(--text-dark);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+/* ── SERVICES ── */
+.services{padding:80px clamp(20px,4vw,48px);background:var(--bg)}
+.services-inner{max-width:var(--max);margin:0 auto}
+.section-eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.section-title{font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.3px;line-height:1.2;margin-bottom:16px}
+.section-desc{font-size:15px;color:var(--text-mid);max-width:520px;line-height:1.7;margin-bottom:40px}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.srv-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:all .3s}
+.srv-card:hover{border-color:var(--teal);box-shadow:0 4px 16px rgba(13,107,94,.06)}
+.srv-icon{width:44px;height:44px;border-radius:10px;background:var(--teal-light);color:var(--teal);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.srv-icon svg{width:20px;height:20px}
+.srv-card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.srv-card p{font-size:13px;color:var(--text-mid);line-height:1.65}
 
-/* ═══ GRAIN TEXTURE ═══ */
-body::after {
-  content: ''; position: fixed; inset: 0; z-index: 9999;
-  pointer-events: none; opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 180px;
-}
+/* ── ABOUT ── */
+.about{padding:80px clamp(20px,4vw,48px);background:var(--white)}
+.about-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-img{border-radius:16px;overflow:hidden;aspect-ratio:1}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about h2{font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.3px;line-height:1.2;margin-bottom:20px}
+.about p{font-size:15px;color:var(--text-mid);line-height:1.85;margin-bottom:16px}
+.about-sig{margin-top:28px;display:flex;align-items:center;gap:16px}
+.about-sig-avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;background:var(--teal-light)}
+.about-sig-avatar img{width:100%;height:100%;object-fit:cover}
+.about-sig-name{font-weight:700;font-size:15px}
+.about-sig-role{font-size:13px;color:var(--text-light)}
 
-/* ═══ NAV ═══ */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 0 clamp(24px, 4vw, 56px);
-  height: 72px;
-  display: flex; align-items: center; justify-content: space-between;
-  background: rgba(12,27,46,0.96);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.nav-brand {
-  font-family: var(--serif); font-size: 22px; color: var(--cream);
-  text-decoration: none; letter-spacing: -0.3px;
-}
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a {
-  font-size: 13px; color: var(--text-light); text-decoration: none;
-  font-weight: 500; letter-spacing: 0.3px; transition: color 0.3s;
-}
-.nav-links a:hover { color: var(--cream); }
-.nav-right { display: flex; align-items: center; gap: 20px; }
-.nav-tel {
-  font-size: 13px; color: var(--text-light); text-decoration: none;
-  font-weight: 500; letter-spacing: 0.3px;
-  display: flex; align-items: center; gap: 6px;
-}
-.nav-cta {
-  background: var(--warm); color: var(--navy); padding: 10px 24px;
-  border-radius: 8px; font-size: 13px; font-weight: 700;
-  text-decoration: none; transition: all 0.25s; letter-spacing: -0.2px;
-}
-.nav-cta:hover { background: var(--warm-light); }
+/* ── PROJECTS ── */
+.projects{padding:80px clamp(20px,4vw,48px);background:var(--bg)}
+.projects-inner{max-width:var(--max);margin:0 auto}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proj-card{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s}
+.proj-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.06)}
+.proj-img{height:200px;overflow:hidden}
+.proj-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.proj-card:hover .proj-img img{transform:scale(1.04)}
+.proj-body{padding:24px}
+.proj-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.proj-card h3{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.3}
+.proj-card p{font-size:13px;color:var(--text-mid);line-height:1.6}
 
-/* ═══ HERO ═══ */
-.hero {
-  min-height: 100vh; position: relative; overflow: hidden;
-  display: flex; align-items: flex-end;
-  background: var(--navy);
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80') center/cover;
-  opacity: 0.35;
-}
-.hero-bg::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to top, var(--navy) 0%, rgba(12,27,46,0.4) 50%, rgba(12,27,46,0.7) 100%);
-}
-.hero-inner {
-  position: relative; z-index: 2;
-  width: 100%; max-width: 1200px; margin: 0 auto;
-  padding: 0 clamp(24px, 4vw, 56px) 80px;
-  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: end;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  border: 1px solid rgba(201,169,110,0.3); background: rgba(201,169,110,0.08);
-  padding: 6px 16px; border-radius: 100px;
-  font-size: 11px; font-weight: 600; color: var(--warm); letter-spacing: 1.5px;
-  text-transform: uppercase; margin-bottom: 28px;
-}
-.hero-tag::before {
-  content: ''; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--warm); display: block;
-}
-.hero h1 {
-  font-family: var(--serif); font-size: clamp(40px, 5vw, 64px);
-  font-weight: 400; line-height: 1.08; letter-spacing: -1px;
-  color: var(--cream); margin-bottom: 24px;
-}
-.hero h1 em {
-  font-style: italic; color: var(--warm);
-}
-.hero-desc {
-  font-size: 16px; line-height: 1.8; color: var(--text-light);
-  max-width: 440px; margin-bottom: 40px;
-}
-.hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-.btn-gold {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--warm); color: var(--navy); padding: 16px 32px;
-  border-radius: 10px; font-size: 15px; font-weight: 700;
-  text-decoration: none; transition: all 0.3s; letter-spacing: -0.2px;
-}
-.btn-gold:hover { background: var(--warm-light); transform: translateY(-2px); }
-.btn-ghost {
-  display: inline-flex; align-items: center;
-  color: var(--cream); padding: 16px 28px;
-  border: 1px solid rgba(255,255,255,0.15); border-radius: 10px;
-  font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.3s;
-}
-.btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+/* ── REVIEWS ── */
+.reviews{padding:80px clamp(20px,4vw,48px);background:var(--white)}
+.reviews-inner{max-width:var(--max);margin:0 auto}
+.reviews-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.reviews-score{display:flex;align-items:center;gap:12px}
+.reviews-num{font-family:var(--serif);font-size:48px;font-weight:700;color:var(--text);line-height:1}
+.reviews-meta .stars{color:#f59e0b;font-size:18px;letter-spacing:1px}
+.reviews-meta p{font-size:13px;color:var(--text-light);margin-top:2px}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rev-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:28px 24px}
+.rev-card .stars{color:#f59e0b;font-size:13px;letter-spacing:1px;margin-bottom:12px}
+.rev-card blockquote{font-size:14px;color:var(--text-mid);line-height:1.7;margin-bottom:16px;font-style:normal}
+.rev-footer{display:flex;align-items:center;gap:10px}
+.rev-avatar{width:36px;height:36px;border-radius:50%;background:var(--teal-light);color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.rev-name{font-size:13px;font-weight:600}
+.rev-loc{font-size:11px;color:var(--text-light)}
 
-/* Hero info card */
-.hero-card {
-  background: rgba(255,255,255,0.06); backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
-  padding: 32px; margin-bottom: 8px;
-}
-.hero-card-row {
-  display: flex; align-items: center; gap: 16px;
-  padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.hero-card-row:first-child { padding-top: 0; }
-.hero-card-row:last-child { border-bottom: none; padding-bottom: 0; }
-.hero-card-icon {
-  width: 40px; height: 40px; border-radius: 10px;
-  background: var(--warm-glow); color: var(--warm);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.hero-card-icon svg { width: 18px; height: 18px; }
-.hero-card-text { color: var(--cream); font-size: 14px; font-weight: 500; line-height: 1.5; }
-.hero-card-text small { display: block; font-size: 12px; color: var(--text-light); font-weight: 400; }
+/* ── CONTACT ── */
+.contact{padding:80px clamp(20px,4vw,48px);background:var(--teal)}
+.contact-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact-left h2{font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:700;color:var(--white);letter-spacing:-.3px;line-height:1.2;margin-bottom:16px}
+.contact-left p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:32px}
+.contact-info{list-style:none;display:flex;flex-direction:column;gap:20px}
+.contact-info li{display:flex;align-items:center;gap:14px;color:var(--white)}
+.contact-info-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-info-icon svg{width:18px;height:18px;color:var(--white)}
+.contact-info a{color:var(--white);text-decoration:none;font-weight:600;font-size:15px}
+.contact-info small{display:block;font-size:12px;color:rgba(255,255,255,.55);font-weight:400}
+.contact-form{background:var(--white);border-radius:16px;padding:32px;box-shadow:0 8px 32px rgba(0,0,0,.1)}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:5px;color:var(--text)}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:14px;color:var(--text);background:var(--bg);transition:border .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--teal)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-submit{width:100%;padding:14px;border:none;border-radius:8px;background:var(--teal);color:#fff;font-family:var(--sans);font-size:15px;font-weight:700;cursor:pointer;transition:background .2s}
+.form-submit:hover{background:var(--teal-dark)}
+.form-note{text-align:center;margin-top:10px;font-size:12px;color:var(--text-light)}
 
-/* ═══ MARQUEE ═══ */
-.marquee-strip {
-  background: var(--warm); padding: 14px 0; overflow: hidden; white-space: nowrap;
-}
-.marquee-track {
-  display: flex; gap: 0;
-  animation: marquee 30s linear infinite;
-}
-.marquee-item {
-  font-size: 12px; font-weight: 700; color: var(--navy);
-  letter-spacing: 1px; text-transform: uppercase;
-  padding: 0 32px; flex-shrink: 0;
-}
-.marquee-item::after { content: ' \2022'; opacity: 0.3; margin-left: 32px; }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+/* ── AREA ── */
+.area{padding:48px clamp(20px,4vw,48px);background:var(--bg);border-top:1px solid var(--border)}
+.area-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.area h3{font-size:16px;font-weight:700}
+.area p{font-size:13px;color:var(--text-light)}
+.area-tags{display:flex;gap:8px;flex-wrap:wrap}
+.area-tag{background:var(--white);border:1px solid var(--border);padding:6px 14px;border-radius:100px;font-size:12px;color:var(--text-mid);font-weight:500}
 
-/* ═══ INTRO ═══ */
-.intro {
-  padding: 100px clamp(24px, 4vw, 56px);
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-}
-.intro-eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--warm); margin-bottom: 20px;
-  display: flex; align-items: center; gap: 12px;
-}
-.intro-eyebrow::before {
-  content: ''; width: 32px; height: 1px; background: var(--warm);
-}
-.intro h2 {
-  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
-  font-weight: 400; line-height: 1.2; letter-spacing: -0.5px;
-  margin-bottom: 24px;
-}
-.intro p {
-  font-size: 15px; color: var(--text-mid); line-height: 1.85; margin-bottom: 16px;
-}
-.intro-stats {
-  display: flex; gap: 40px; margin-top: 36px; padding-top: 36px;
-  border-top: 1px solid var(--cream-dark);
-}
-.intro-stat-num {
-  font-family: var(--serif); font-size: 36px; color: var(--navy);
-  line-height: 1;
-}
-.intro-stat-label { font-size: 12px; color: var(--text-mid); margin-top: 4px; }
-.intro-img {
-  position: relative; border-radius: 16px; overflow: hidden;
-  aspect-ratio: 3/4;
-}
-.intro-img img { width: 100%; height: 100%; object-fit: cover; }
-.intro-img-badge {
-  position: absolute; bottom: 20px; left: 20px; right: 20px;
-  background: var(--navy); border-radius: 12px; padding: 18px 20px;
-  display: flex; align-items: center; gap: 12px;
-}
-.intro-img-badge-icon {
-  width: 36px; height: 36px; border-radius: 8px;
-  background: var(--warm-glow); color: var(--warm);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.intro-img-badge span { font-size: 13px; color: var(--cream); font-weight: 500; line-height: 1.4; }
+/* ── FOOTER ── */
+.footer{background:var(--text);color:rgba(255,255,255,.6);padding:48px clamp(20px,4vw,48px) 24px}
+.footer-inner{max-width:var(--max);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
+.footer-about{font-size:13px;line-height:1.6;max-width:240px}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-size:11px}
+.footer-credit a{color:var(--teal);text-decoration:none}
 
-/* ═══ SERVICES (bento) ═══ */
-.services { padding: 100px clamp(24px, 4vw, 56px) 60px; background: var(--navy); }
-.services-inner { max-width: 1200px; margin: 0 auto; }
-.services .section-head { text-align: center; margin-bottom: 56px; }
-.services .eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--warm); margin-bottom: 16px;
+/* ── MOBILE CTA ── */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99;background:var(--white);border-top:1px solid var(--border);padding:10px 16px;gap:10px}
+.mobile-bar a{flex:1;text-align:center;padding:12px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.mcta-call{background:var(--teal);color:#fff}
+.mcta-msg{background:var(--bg);color:var(--text);border:1px solid var(--border)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-inner,.about-inner,.contact-inner{grid-template-columns:1fr}
+  .hero-img-wrap{max-width:500px}
+  .about-img{max-width:400px}
+  .proj-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
 }
-.services .head-title {
-  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
-  font-weight: 400; color: var(--cream); letter-spacing: -0.5px; line-height: 1.2;
-}
-.bento {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  gap: 16px;
-}
-.bento-card {
-  background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 16px; padding: 32px 28px;
-  transition: all 0.4s ease; position: relative; overflow: hidden;
-}
-.bento-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--warm), transparent);
-  opacity: 0; transition: opacity 0.4s;
-}
-.bento-card:hover { border-color: rgba(201,169,110,0.15); transform: translateY(-4px); }
-.bento-card:hover::before { opacity: 1; }
-.bento-card.featured {
-  grid-row: span 2; padding: 0; display: flex; flex-direction: column;
-}
-.bento-featured-img { height: 200px; overflow: hidden; border-radius: 16px 16px 0 0; }
-.bento-featured-img img { width: 100%; height: 100%; object-fit: cover; }
-.bento-featured-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
-.bento-icon {
-  width: 44px; height: 44px; border-radius: 10px;
-  background: var(--warm-glow); color: var(--warm);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
-}
-.bento-icon svg { width: 20px; height: 20px; }
-.bento-card h3 {
-  font-family: var(--serif); font-size: 20px; font-weight: 400;
-  color: var(--cream); margin-bottom: 10px; letter-spacing: -0.2px;
-}
-.bento-card p { font-size: 13px; color: var(--text-light); line-height: 1.7; }
-.bento-card .tag {
-  display: inline-block; margin-top: auto; padding-top: 20px;
-  font-size: 11px; font-weight: 600; color: var(--warm);
-  letter-spacing: 0.5px;
+@media(max-width:768px){
+  .nav-links,.nav-tel{display:none}
+  .hero{padding-top:100px}
+  .srv-grid,.proj-grid,.rev-grid{grid-template-columns:1fr}
+  .area-inner{flex-direction:column;text-align:center}
+  .area-tags{justify-content:center}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:6px;text-align:center}
+  .mobile-bar{display:flex}
+  body{padding-bottom:68px}
 }
 
-/* ═══ PROCESS ═══ */
-.process { padding: 100px clamp(24px, 4vw, 56px); max-width: 1200px; margin: 0 auto; }
-.process .section-head { text-align: center; margin-bottom: 64px; }
-.process .eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--warm); margin-bottom: 16px;
-}
-.process .head-title {
-  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
-  font-weight: 400; letter-spacing: -0.5px; line-height: 1.2;
-}
-.steps {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-  position: relative;
-}
-.steps::before {
-  content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%;
-  height: 1px; background: var(--cream-dark);
-}
-.step { text-align: center; position: relative; padding: 0 16px; }
-.step-num {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--navy); color: var(--warm);
-  font-family: var(--serif); font-size: 20px;
-  display: inline-flex; align-items: center; justify-content: center;
-  margin-bottom: 20px; position: relative; z-index: 1;
-  border: 3px solid var(--cream);
-}
-.step h4 {
-  font-size: 15px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.2px;
-}
-.step p { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
-
-/* ═══ TESTIMONIALS ═══ */
-.reviews { padding: 80px clamp(24px, 4vw, 56px) 100px; background: var(--navy); }
-.reviews-inner { max-width: 1200px; margin: 0 auto; }
-.reviews .section-head { text-align: center; margin-bottom: 48px; }
-.reviews .eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--warm); margin-bottom: 16px;
-}
-.reviews .head-title {
-  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
-  font-weight: 400; color: var(--cream); letter-spacing: -0.5px;
-}
-.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.review-card {
-  background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 16px; padding: 32px 28px;
-}
-.review-stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; margin-bottom: 16px; }
-.review-card blockquote {
-  font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.75;
-  font-style: italic; margin-bottom: 20px;
-}
-.review-author { display: flex; align-items: center; gap: 12px; }
-.review-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--navy-light); color: var(--warm);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 13px;
-}
-.review-name { font-size: 13px; font-weight: 600; color: var(--cream); }
-.review-loc { font-size: 11px; color: var(--text-light); }
-.reviews-source {
-  text-align: center; margin-top: 32px;
-  font-size: 12px; color: var(--text-light);
-}
-.reviews-source svg { vertical-align: -2px; margin-right: 4px; opacity: 0.5; }
-
-/* ═══ CTA ═══ */
-.cta {
-  padding: 100px clamp(24px, 4vw, 56px);
-  max-width: 1200px; margin: 0 auto;
-}
-.cta-box {
-  background: var(--navy); border-radius: 24px; padding: 72px 56px;
-  text-align: center; position: relative; overflow: hidden;
-}
-.cta-box::before {
-  content: ''; position: absolute; top: -80px; right: -80px;
-  width: 300px; height: 300px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
-}
-.cta-box::after {
-  content: ''; position: absolute; bottom: -60px; left: -60px;
-  width: 200px; height: 200px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
-}
-.cta-box h2 {
-  font-family: var(--serif); font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 400; color: var(--cream); letter-spacing: -0.5px;
-  margin-bottom: 16px; position: relative;
-}
-.cta-box h2 em { font-style: italic; color: var(--warm); }
-.cta-box p {
-  font-size: 16px; color: var(--text-light); margin-bottom: 36px;
-  position: relative;
-}
-.cta-box .btn-gold { font-size: 16px; padding: 18px 40px; position: relative; }
-.cta-note {
-  margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.3);
-  position: relative;
-}
-
-/* ═══ FOOTER ═══ */
-.footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); }
-.footer-inner {
-  max-width: 1200px; margin: 0 auto;
-  padding: 56px clamp(24px, 4vw, 56px) 32px;
-}
-.footer-grid {
-  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;
-  margin-bottom: 48px;
-}
-.footer-brand {
-  font-family: var(--serif); font-size: 22px; color: var(--cream);
-  margin-bottom: 12px;
-}
-.footer-about { font-size: 13px; color: var(--text-light); line-height: 1.7; max-width: 260px; }
-.footer-col h4 {
-  font-size: 11px; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--warm); margin-bottom: 18px;
-}
-.footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: 12px; }
-.footer-col a {
-  font-size: 13px; color: var(--text-light); text-decoration: none;
-  transition: color 0.3s;
-}
-.footer-col a:hover { color: var(--cream); }
-.footer-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
-}
-.footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); }
-.footer-credit { font-size: 11px; color: rgba(255,255,255,0.25); }
-.footer-credit a { color: var(--warm); text-decoration: none; opacity: 0.7; }
-
-/* ═══ CONTACT FORM ═══ */
-.contact { padding: 100px clamp(24px, 4vw, 56px); max-width: 1200px; margin: 0 auto; }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.contact .eyebrow {
-  font-size: 11px; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--warm); margin-bottom: 16px;
-}
-.contact .head-title {
-  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
-  font-weight: 400; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 20px;
-}
-.contact-text { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 32px; }
-.contact-info-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-.contact-info-item { display: flex; align-items: center; gap: 14px; }
-.contact-info-icon {
-  width: 40px; height: 40px; border-radius: 10px;
-  background: var(--navy); color: var(--warm);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
-.contact-info-icon svg { width: 18px; height: 18px; }
-.contact-info-text { font-size: 14px; line-height: 1.5; }
-.contact-info-text strong { display: block; font-size: 13px; color: var(--text-mid); font-weight: 400; }
-.contact-form {
-  background: var(--white); border-radius: 20px; padding: 36px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid var(--cream-dark);
-}
-.form-group { margin-bottom: 18px; }
-.form-group label {
-  display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;
-  color: var(--text-dark);
-}
-.form-group input, .form-group textarea, .form-group select {
-  width: 100%; padding: 13px 16px; border: 1px solid var(--cream-dark);
-  border-radius: 10px; font-family: var(--sans); font-size: 14px;
-  color: var(--text-dark); background: var(--cream);
-  transition: border-color 0.3s;
-}
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-  outline: none; border-color: var(--warm);
-}
-.form-group textarea { resize: vertical; min-height: 100px; }
-.form-submit {
-  width: 100%; padding: 16px; border: none; border-radius: 10px;
-  background: var(--navy); color: var(--cream); font-family: var(--sans);
-  font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s;
-}
-.form-submit:hover { background: var(--navy-mid); }
-.form-note { text-align: center; margin-top: 12px; font-size: 12px; color: var(--text-mid); }
-
-/* ═══ AREA SEO ═══ */
-.area { padding: 60px clamp(24px, 4vw, 56px) 80px; background: var(--navy); }
-.area-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
-.area h2 {
-  font-family: var(--serif); font-size: 24px; font-weight: 400;
-  color: var(--cream); margin-bottom: 12px;
-}
-.area p { font-size: 14px; color: var(--text-light); margin-bottom: 24px; }
-.area-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-.area-tag {
-  background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.08);
-  padding: 8px 18px; border-radius: 100px;
-  font-size: 13px; font-weight: 500; color: var(--text-light);
-  transition: all 0.3s;
-}
-.area-tag:hover { border-color: rgba(201,169,110,0.25); color: var(--cream); }
-
-/* ═══ STICKY MOBILE CTA ═══ */
-.mobile-cta-bar {
-  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
-  background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 12px 16px; gap: 10px;
-}
-.mobile-cta-bar a {
-  flex: 1; text-align: center; padding: 14px; border-radius: 10px;
-  font-size: 14px; font-weight: 700; text-decoration: none;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-}
-.mobile-cta-bar .mcta-call { background: var(--warm); color: var(--navy); }
-.mobile-cta-bar .mcta-form { background: var(--navy-mid); color: var(--cream); border: 1px solid rgba(255,255,255,0.1); }
-
-@media (max-width: 1024px) {
-  .contact-grid { grid-template-columns: 1fr; }
-}
-
-/* ═══ ANIMATIONS ═══ */
-.fade-in {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
-}
-.fade-in.vis { opacity: 1; transform: translateY(0); }
-.fade-in:nth-child(2) { transition-delay: 0.1s; }
-.fade-in:nth-child(3) { transition-delay: 0.2s; }
-.fade-in:nth-child(4) { transition-delay: 0.3s; }
-
-/* ═══ RESPONSIVE ═══ */
-@media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero-card { max-width: 400px; }
-  .intro { grid-template-columns: 1fr; gap: 48px; }
-  .intro-img { max-width: 400px; aspect-ratio: 1; }
-  .bento { grid-template-columns: 1fr 1fr; }
-  .bento-card.featured { grid-row: auto; }
-  .steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-  .steps::before { display: none; }
-  .reviews-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 768px) {
-  .nav { height: 60px; }
-  .nav-links { display: none; }
-  .nav-tel { display: none; }
-  .hero-inner { padding-bottom: 60px; }
-  .hero h1 { font-size: 36px; }
-  .bento { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr; }
-  .cta-box { padding: 48px 28px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  .mobile-cta-bar { display: flex; }
-  body { padding-bottom: 72px; }
-}
+/* ── ANIM ── */
+.fi{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.fi.v{opacity:1;transform:none}
 </style>
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
 <nav class="nav">
-  <a href="#" class="nav-brand">Hansen VVS</a>
-  <ul class="nav-links">
-    <li><a href="#ydelser">Ydelser</a></li>
-    <li><a href="#om">Om os</a></li>
-    <li><a href="#proces">S&aring;dan g&oslash;r vi</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="tel:+4575823419" class="nav-tel">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      75 82 34 19
-    </a>
-    <a href="tel:+4575823419" class="nav-cta">F&aring; et tilbud</a>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Hansen <span>VVS</span></a>
+    <ul class="nav-links">
+      <li><a href="#ydelser">Ydelser</a></li>
+      <li><a href="#om">Om Torben</a></li>
+      <li><a href="#projekter">Projekter</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+4575823419" class="nav-tel">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        75 82 34 19
+      </a>
+      <a href="tel:+4575823419" class="nav-cta">Ring nu</a>
+    </div>
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-tag">Autoriseret VVS &middot; Vejle</div>
-      <h1>H&aring;ndv&aelig;rk du<br>kan <em>stole p&aring;.</em></h1>
-      <p class="hero-desc">I over 25 &aring;r har vi holdt Vejles r&oslash;r t&aelig;tte, vand varmt og badev&aelig;relser flotte. Ring — vi er klar, ogs&aring; kl. 3 om natten.</p>
+      <div class="hero-trust">
+        <span class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="hero-trust-text">4.9 / 5 &middot; 47 anmeldelser</span>
+      </div>
+      <h1>Din lokale VVS-mand<br>i <span class="teal">Vejle</span> siden 1998</h1>
+      <p class="hero-desc">Vi er Torben og holdet bag Hansen VVS. Vi fikser springende r&oslash;r, bygger badev&aelig;relser og installerer varmepumper &mdash; og vi svarer altid n&aring;r du ringer. Ogs&aring; kl. 3 om natten.</p>
       <div class="hero-actions">
-        <a href="tel:+4575823419" class="btn-gold">
+        <a href="tel:+4575823419" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          Ring nu — vi er fremme inden 60 min
+          Ring 75 82 34 19
         </a>
-        <a href="#kontakt" class="btn-ghost">F&aring; gratis tilbud i dag</a>
+        <a href="#kontakt" class="btn-secondary">F&aring; gratis tilbud</a>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> Autoriseret installat&oslash;r</span>
+        <span class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> D&oslash;gn&aring;ben akut service</span>
+        <span class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg> 2 &aring;rs garanti</span>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-row">
-        <div class="hero-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="hero-card-text">Akut? Vi er fremme inden 60 min<small>D&oslash;gn&aring;ben n&oslash;dservice — alle dage</small></div>
+    <div class="hero-img-wrap">
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=700&q=80" alt="VVS-installat&oslash;r fra Hansen VVS i Vejle">
       </div>
-      <div class="hero-card-row">
-        <div class="hero-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="hero-card-text">2 &aring;rs garanti p&aring; alt arbejde<small>Autoriseret VVS-installat&oslash;r siden 1998</small></div>
-      </div>
-      <div class="hero-card-row">
-        <div class="hero-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-        <div class="hero-card-text">Fast pris — altid skriftligt tilbud<small>Ingen overraskelser p&aring; regningen</small></div>
+      <div class="hero-quote">
+        <p>&ldquo;Torben og hans folk renoverede vores badev&aelig;relse p&aring; 85 m&sup2;. F&aelig;rdigt p&aring; 12 dage, til den aftalte pris. S&aring;dan skal det v&aelig;re.&rdquo;</p>
+        <div class="hero-quote-author">Mette L. &middot; Vejle &middot; november 2025</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ MARQUEE ═══ -->
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item">VVS-installation</span>
-    <span class="marquee-item">Akut service 24/7</span>
-    <span class="marquee-item">Badeværelser</span>
-    <span class="marquee-item">Varmepumper</span>
-    <span class="marquee-item">Kloakservice</span>
-    <span class="marquee-item">Gasinstallation</span>
-    <span class="marquee-item">VVS-installation</span>
-    <span class="marquee-item">Akut service 24/7</span>
-    <span class="marquee-item">Badeværelser</span>
-    <span class="marquee-item">Varmepumper</span>
-    <span class="marquee-item">Kloakservice</span>
-    <span class="marquee-item">Gasinstallation</span>
-  </div>
-</div>
-
-<!-- ═══ INTRO ═══ -->
-<section class="intro" id="om">
-  <div class="fade-in">
-    <div class="intro-eyebrow">Om Hansen VVS</div>
-    <h2>Vi er ikke det st&oslash;rste firma.<br>Vi er det mest omhyggelige.</h2>
-    <p>Hansen VVS blev grundlagt i 1998 af Torben Hansen med &eacute;n varevogn og en overbevisning om at VVS-arbejde skulle laves ordentligt — f&oslash;rste gang.</p>
-    <p>I dag er vi 8 dedikerede h&aring;ndv&aelig;rkere, men filosofien er den samme. Vi skynder os ikke. Vi g&oslash;r det rigtigt.</p>
-    <div class="intro-stats">
-      <div>
-        <div class="intro-stat-num">25+</div>
-        <div class="intro-stat-label">&aring;rs erfaring</div>
-      </div>
-      <div>
-        <div class="intro-stat-num">2.400+</div>
-        <div class="intro-stat-label">opgaver udf&oslash;rt</div>
-      </div>
-      <div>
-        <div class="intro-stat-num">8</div>
-        <div class="intro-stat-label">h&aring;ndv&aelig;rkere</div>
-      </div>
-    </div>
-  </div>
-  <div class="intro-img fade-in">
-    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="VVS-installatør i Vejle — Hansen VVS team" loading="lazy">
-    <div class="intro-img-badge">
-      <div class="intro-img-badge-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      <span>Autoriseret af Sikkerhedsstyrelsen</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SERVICES ═══ -->
+<!-- SERVICES -->
 <section class="services" id="ydelser">
   <div class="services-inner">
-    <div class="section-head fade-in">
-      <div class="eyebrow">Ydelser</div>
-      <div class="head-title">Alt inden for VVS<br>— under &eacute;t tag.</div>
-    </div>
-    <div class="bento">
-      <div class="bento-card featured fade-in">
-        <div class="bento-featured-img">
-          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Badeværelsesrenovering i Vejle af Hansen VVS" loading="lazy">
-        </div>
-        <div class="bento-featured-body">
-          <h3>Badev&aelig;relsesrenovering</h3>
-          <p>Komplet renovation fra f&oslash;rste skitse til det f&aelig;rdige resultat. Vi h&aring;ndterer alt — VVS, fliser, el og snitkerarbejde — s&aring; du kun har &eacute;n kontaktperson.</p>
-          <span class="tag">N&oslash;glef&aelig;rdig l&oslash;sning &rarr;</span>
-        </div>
-      </div>
-      <div class="bento-card fade-in">
-        <div class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
-        </div>
+    <div class="section-eyebrow fi">Hvad kan vi hj&aelig;lpe med</div>
+    <h2 class="section-title fi">Vi l&oslash;ser det — stort og sm&aring;t.</h2>
+    <p class="section-desc fi">Fra en dryppende vandhane til en komplet badev&aelig;relsesrenovering. Alle opgaver udf&oslash;res med garanti, og vi rydder altid op efter os.</p>
+    <div class="srv-grid">
+      <div class="srv-card fi">
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></div>
         <h3>VVS-installation</h3>
-        <p>Installation af vand, varme og afl&oslash;b i b&aring;de nybyggeri og eksisterende ejendomme. Alt efter g&aelig;ldende regler.</p>
+        <p>Vandtilslutning, varmeinstallation og sanitet i nybyg og renovering. Alt efter g&aelig;ldende regler.</p>
       </div>
-      <div class="bento-card fade-in">
-        <div class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
-        <h3>Akut service</h3>
-        <p>D&oslash;gn&aring;ben n&oslash;dservice. Vi er fremme inden 60 min i hele Vejle-omr&aring;det. Ring — vi er altid klar.</p>
+      <div class="srv-card fi">
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Akut VVS — 24/7</h3>
+        <p>Springvand i k&aelig;lderen kl. 2 om natten? Vi er fremme inden 60 minutter. Ring — vi svarer altid.</p>
       </div>
-      <div class="bento-card fade-in">
-        <div class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
-        </div>
+      <div class="srv-card fi">
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>Badev&aelig;relse</h3>
+        <p>Komplet renovering — &eacute;n kontaktperson, fast pris, f&aelig;rdig til tiden. Vi styrer VVS, fliser og el.</p>
+      </div>
+      <div class="srv-card fi">
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div>
         <h3>Varmepumper</h3>
-        <p>Installation og service af luft/vand og jordvarme. Spar op til 60% p&aring; varmeregningen med en moderne l&oslash;sning.</p>
+        <p>Luft/vand, jordvarme, service og reparation. Vores kunder sparer i snit 4.200 kr. om &aring;ret p&aring; varme.</p>
       </div>
-      <div class="bento-card fade-in">
-        <div class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      <div class="srv-card fi">
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Kloak &amp; afl&oslash;b</h3>
+        <p>TV-inspektion, h&oslash;jtryksspuling og gravefrit reparation. Vi finder problemet og l&oslash;ser det — f&oslash;r det bliver dyrt.</p>
+      </div>
+      <div class="srv-card fi">
+        <div class="srv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Gasinstallation</h3>
+        <p>Autoriseret gasarbejde — gasfyr, gaskomfurer og &aring;rlig sikkerhedsgennemgang. Trygt og efter bogen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="om">
+  <div class="about-inner">
+    <div class="about-img fi">
+      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Torben Hansen, grundl&aelig;gger af Hansen VVS" loading="lazy">
+    </div>
+    <div class="fi">
+      <div class="section-eyebrow">Om os</div>
+      <h2>Jeg startede med &eacute;n varevogn og et l&oslash;fte.</h2>
+      <p>I 1998 satte jeg mig for at g&oslash;re VVS-arbejde ordentligt. Ikke hurtigst muligt, men rigtigt f&oslash;rste gang. Det l&oslash;fte g&aelig;lder stadig &mdash; bare med 8 mand i stedet for &eacute;n.</p>
+      <p>Vi er ikke det st&oslash;rste firma i Vejle. Men vi er det firma der svarer telefonen, overholder deadlines og rydder op n&aring;r vi g&aring;r. Sp&oslash;rg bare vores kunder.</p>
+      <div class="about-sig">
+        <div class="about-sig-avatar" style="background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:700;">TH</div>
+        <div>
+          <div class="about-sig-name">Torben Hansen</div>
+          <div class="about-sig-role">Grundl&aelig;gger &middot; Mester &middot; Stadig den f&oslash;rste p&aring; pladsen</div>
         </div>
-        <h3>Kloak &amp; Afl&oslash;b</h3>
-        <p>TV-inspektion, h&oslash;jtryksspuling og reparation. Vi finder problemet og l&oslash;ser det — f&oslash;r det bliver dyrt.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PROCESS ═══ -->
-<section class="process" id="proces">
-  <div class="section-head fade-in">
-    <div class="eyebrow">S&aring;dan g&oslash;r vi</div>
-    <div class="head-title">Fra opkald til f&aelig;rdigt resultat.</div>
-  </div>
-  <div class="steps">
-    <div class="step fade-in">
-      <div class="step-num">1</div>
-      <h4>Du ringer</h4>
-      <p>Fort&aelig;l os hvad du har brug for. Vi lytter og stiller de rigtige sp&oslash;rgsm&aring;l.</p>
-    </div>
-    <div class="step fade-in">
-      <div class="step-num">2</div>
-      <h4>Vi kigger forbi</h4>
-      <p>Gratis tilstandsvurdering p&aring; stedet. Ingen forpligtelser, ingen skjulte gebyrer.</p>
-    </div>
-    <div class="step fade-in">
-      <div class="step-num">3</div>
-      <h4>Fast tilbud</h4>
-      <p>Du f&aring;r et skriftligt tilbud med fast pris. Prisen &aelig;ndrer sig ikke undervejs.</p>
-    </div>
-    <div class="step fade-in">
-      <div class="step-num">4</div>
-      <h4>Vi udf&oslash;rer</h4>
-      <p>Professionelt h&aring;ndv&aelig;rk med oprydning. 2 &aring;rs garanti p&aring; alt arbejde.</p>
+<!-- PROJECTS -->
+<section class="projects" id="projekter">
+  <div class="projects-inner">
+    <div class="section-eyebrow fi">Seneste projekter</div>
+    <h2 class="section-title fi">Se hvad vi har lavet.</h2>
+    <p class="section-desc fi">Her er tre af vores seneste opgaver. Alle udf&oslash;rt til fast pris og med 2 &aring;rs garanti.</p>
+    <div class="proj-grid">
+      <div class="proj-card fi">
+        <div class="proj-img"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&q=80" alt="Badeværelsesrenovering i Vejle" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="proj-tag">Badev&aelig;relse</div>
+          <h3>Komplet renovering, 85 m&sup2; villa i Vejle</h3>
+          <p>Nyt badev&aelig;relse med gulvvarme, walk-in bruser og dobbelt h&aring;ndvask. F&aelig;rdigt p&aring; 12 arbejdsdage.</p>
+        </div>
+      </div>
+      <div class="proj-card fi">
+        <div class="proj-img"><img src="https://images.unsplash.com/photo-1585128792020-803d29415281?w=500&q=80" alt="Varmepumpe installation i Jelling" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="proj-tag">Varmepumpe</div>
+          <h3>Luft/vand-varmepumpe, parcelhus i Jelling</h3>
+          <p>Skiftede gammelt oliefyr ud med Bosch luft/vand. Kunden sparer 5.100 kr. &aring;rligt p&aring; varme.</p>
+        </div>
+      </div>
+      <div class="proj-card fi">
+        <div class="proj-img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&q=80" alt="Akut VVS reparation i Børkop" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="proj-tag">Akut service</div>
+          <h3>Spr&aelig;ngt vandr&oslash;r, r&aelig;kkehus i B&oslash;rkop</h3>
+          <p>Opkald kl. 22:40, fremme kl. 23:15. R&oslash;ret skiftet og gulvet t&oslash;rret inden midnat.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ REVIEWS ═══ -->
+<!-- REVIEWS -->
 <section class="reviews">
   <div class="reviews-inner">
-    <div class="section-head fade-in">
-      <div class="eyebrow">Anmeldelser</div>
-      <div class="head-title">Det siger vores kunder.</div>
-    </div>
-    <div class="reviews-grid">
-      <div class="review-card fade-in">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote>Hansen VVS renoverede vores badev&aelig;relse fra start til slut. Professionelt, rent og pr&aelig;cis inden for tidsplanen. Kan kun anbefales.</blockquote>
-        <div class="review-author">
-          <div class="review-avatar">ML</div>
-          <div>
-            <div class="review-name">Mette Larsen</div>
-            <div class="review-loc">Vejle</div>
-          </div>
-        </div>
+    <div class="reviews-head">
+      <div>
+        <div class="section-eyebrow fi">Anmeldelser</div>
+        <h2 class="section-title fi">Det siger kunderne.</h2>
       </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote>Springvandet i k&aelig;lderen kl. 2 om natten. Hansen VVS var her p&aring; 40 minutter og fik det l&oslash;st med det samme. Fantastisk service.</blockquote>
-        <div class="review-author">
-          <div class="review-avatar">PJ</div>
-          <div>
-            <div class="review-name">Peter Jensen</div>
-            <div class="review-loc">B&oslash;rkop</div>
-          </div>
-        </div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote>Vi fik installeret varmepumpe og har sparet 4.800 kr. p&aring; varme alene det f&oslash;rste &aring;r. Torben forklarede alt grundigt og holdt prisen.</blockquote>
-        <div class="review-author">
-          <div class="review-avatar">AH</div>
-          <div>
-            <div class="review-name">Anne &amp; Henrik</div>
-            <div class="review-loc">Jelling</div>
-          </div>
+      <div class="reviews-score fi">
+        <div class="reviews-num">4.9</div>
+        <div class="reviews-meta">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>Baseret p&aring; 47 anmeldelser</p>
         </div>
       </div>
     </div>
-    <div class="reviews-source">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Baseret p&aring; 47 anmeldelser &middot; 4.9 gennemsnit
+    <div class="rev-grid">
+      <div class="rev-card fi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Torben og holdet renoverede vores badev&aelig;relse fra start til slut. Professionelt, rent og pr&aelig;cis til den aftalte pris. Vi bruger dem igen.</blockquote>
+        <div class="rev-footer"><div class="rev-avatar">ML</div><div><div class="rev-name">Mette Larsen</div><div class="rev-loc">Vejle &middot; nov. 2025</div></div></div>
+      </div>
+      <div class="rev-card fi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Springvand i k&aelig;lderen kl. 2 om natten. De var her p&aring; 40 minutter. Rolige, professionelle og l&oslash;ste det med det samme. Fantastisk service.</blockquote>
+        <div class="rev-footer"><div class="rev-avatar">PJ</div><div><div class="rev-name">Peter Jensen</div><div class="rev-loc">B&oslash;rkop &middot; sep. 2025</div></div></div>
+      </div>
+      <div class="rev-card fi">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Fik installeret varmepumpe. Torben forklarede alt grundigt p&aring; forh&aring;nd. Prisen holdt, og vi har sparet 4.800 kr. p&aring; varme det f&oslash;rste &aring;r.</blockquote>
+        <div class="rev-footer"><div class="rev-avatar">AH</div><div><div class="rev-name">Anne &amp; Henrik</div><div class="rev-loc">Jelling &middot; jun. 2025</div></div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CONTACT ═══ -->
+<!-- CONTACT -->
 <section class="contact" id="kontakt">
-  <div class="contact-grid">
-    <div class="fade-in">
-      <div class="eyebrow">Kontakt</div>
-      <h2 class="head-title" style="font-family:var(--serif);letter-spacing:-0.5px;">F&aring; et gratis tilbud<br>— helt uforpligtende.</h2>
-      <p class="contact-text">Udfyld formularen eller ring direkte. Vi vender tilbage inden for 2 timer — ofte hurtigere.</p>
-      <ul class="contact-info-list">
-        <li class="contact-info-item">
-          <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-          <div class="contact-info-text"><a href="tel:+4575823419" style="color:var(--text-dark);text-decoration:none;font-weight:700;font-size:18px;">75 82 34 19</a><strong>D&oslash;gn&aring;ben n&oslash;dservice</strong></div>
-        </li>
-        <li class="contact-info-item">
-          <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div class="contact-info-text"><a href="mailto:info@hansenvvs.dk" style="color:var(--text-dark);text-decoration:none;font-weight:600;">info@hansenvvs.dk</a><strong>Svar inden 2 timer</strong></div>
-        </li>
-        <li class="contact-info-item">
-          <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="contact-info-text"><span style="font-weight:600;">Horsensvej 42, 7100 Vejle</span><strong>Ingen k&oslash;rselstill&aelig;g i Vejle-omr&aring;det</strong></div>
-        </li>
+  <div class="contact-inner">
+    <div class="contact-left fi">
+      <h2>Skal vi snakke om det?</h2>
+      <p>Ring direkte, eller udfyld formularen — s&aring; ringer vi dig op inden 2 timer. Altid gratis tilbud, altid uforpligtende.</p>
+      <ul class="contact-info">
+        <li><div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><a href="tel:+4575823419">75 82 34 19</a><small>D&oslash;gn&aring;ben n&oslash;dservice</small></div></li>
+        <li><div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><a href="mailto:info@hansenvvs.dk">info@hansenvvs.dk</a><small>Svar inden 2 timer</small></div></li>
+        <li><div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><a href="#">Horsensvej 42, 7100 Vejle</a><small>Man–Fre 07–16 &middot; L&oslash;r 08–12</small></div></li>
       </ul>
     </div>
-    <div class="contact-form fade-in">
+    <div class="contact-form fi">
       <form onsubmit="return false;">
-        <div class="form-group">
-          <label for="name">Navn</label>
-          <input type="text" id="name" placeholder="Dit fulde navn">
-        </div>
-        <div class="form-group">
-          <label for="phone">Telefon</label>
-          <input type="tel" id="phone" placeholder="Dit telefonnummer">
-        </div>
-        <div class="form-group">
-          <label for="service">Hvad drejer det sig om?</label>
-          <select id="service">
-            <option value="">V&aelig;lg ydelse...</option>
-            <option>VVS-installation</option>
-            <option>Akut service / n&oslash;dservice</option>
-            <option>Badev&aelig;relsesrenovering</option>
-            <option>Varmepumpe</option>
-            <option>Kloak &amp; afl&oslash;b</option>
-            <option>Andet</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="msg">Besked</label>
-          <textarea id="msg" placeholder="Beskriv kort hvad du har brug for..."></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send — vi ringer dig op inden 2 timer</button>
-        <p class="form-note">Ingen forpligtelser. Vi sender aldrig spam.</p>
+        <div class="form-group"><label>Navn</label><input type="text" placeholder="Dit fulde navn"></div>
+        <div class="form-group"><label>Telefon</label><input type="tel" placeholder="Dit nummer — vi ringer dig op"></div>
+        <div class="form-group"><label>Hvad drejer det sig om?</label><select><option value="">V&aelig;lg...</option><option>VVS-installation</option><option>Akut / n&oslash;dservice</option><option>Badev&aelig;relse</option><option>Varmepumpe</option><option>Kloak &amp; afl&oslash;b</option><option>Andet</option></select></div>
+        <div class="form-group"><label>Kort beskrivelse</label><textarea placeholder="Hvad har du brug for hj&aelig;lp til?"></textarea></div>
+        <button class="form-submit">Send — vi ringer inden 2 timer</button>
+        <p class="form-note">Vi deler aldrig dine oplysninger.</p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ═══ AREA SEO ═══ -->
+<!-- AREA -->
 <section class="area">
-  <div class="area-inner fade-in">
-    <h2>VVS-installat&oslash;r i Vejle og omegn</h2>
-    <p>Vi d&aelig;kker hele Trekantsomr&aring;det — ingen k&oslash;rselstill&aelig;g inden for 25 km af Vejle centrum.</p>
+  <div class="area-inner">
+    <div><h3>VVS-installat&oslash;r i Vejle og omegn</h3><p>Ingen k&oslash;rselstill&aelig;g inden for 25 km</p></div>
     <div class="area-tags">
-      <span class="area-tag">VVS Vejle</span>
-      <span class="area-tag">VVS B&oslash;rkop</span>
-      <span class="area-tag">VVS Jelling</span>
-      <span class="area-tag">VVS Give</span>
-      <span class="area-tag">VVS Egtved</span>
-      <span class="area-tag">VVS Bredsten</span>
-      <span class="area-tag">VVS N&oslash;rre Snede</span>
-      <span class="area-tag">Akut VVS Vejle</span>
-      <span class="area-tag">Badev&aelig;relse Vejle</span>
+      <span class="area-tag">Vejle</span><span class="area-tag">B&oslash;rkop</span><span class="area-tag">Jelling</span><span class="area-tag">Give</span><span class="area-tag">Egtved</span><span class="area-tag">Bredsten</span>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
-      <div>
-        <div class="footer-brand">Hansen VVS</div>
-        <p class="footer-about">Autoriseret VVS-installat&oslash;r i Vejle siden 1998. Vi tror p&aring; ordentligt h&aring;ndv&aelig;rk, fair priser og at rydde op efter os selv.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Ydelser</h4>
-        <ul>
-          <li><a href="#">VVS-installation</a></li>
-          <li><a href="#">Akut service 24/7</a></li>
-          <li><a href="#">Badev&aelig;relse</a></li>
-          <li><a href="#">Varmepumper</a></li>
-          <li><a href="#">Kloak &amp; afl&oslash;b</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="tel:+4575823419">75 82 34 19</a></li>
-          <li><a href="mailto:info@hansenvvs.dk">info@hansenvvs.dk</a></li>
-          <li><a href="#">Horsensvej 42</a></li>
-          <li><a href="#">7100 Vejle</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>&Aring;bningstider</h4>
-        <ul>
-          <li><a href="#">Man–Fre: 07:00–16:00</a></li>
-          <li><a href="#">L&oslash;rdag: 08:00–12:00</a></li>
-          <li><a href="#">S&oslash;ndag: Lukket</a></li>
-          <li><a href="#" style="color:var(--warm);">N&oslash;dservice d&oslash;gnet rundt</a></li>
-        </ul>
-      </div>
+      <div><div class="footer-brand">Hansen VVS</div><p class="footer-about">Autoriseret VVS-installat&oslash;r i Vejle siden 1998. Ordentligt h&aring;ndv&aelig;rk, fair priser, og vi rydder op efter os.</p></div>
+      <div class="footer-col"><h4>Ydelser</h4><ul><li><a href="#">VVS-installation</a></li><li><a href="#">Akut service 24/7</a></li><li><a href="#">Badev&aelig;relse</a></li><li><a href="#">Varmepumper</a></li><li><a href="#">Kloak &amp; afl&oslash;b</a></li></ul></div>
+      <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="tel:+4575823419">75 82 34 19</a></li><li><a href="mailto:info@hansenvvs.dk">info@hansenvvs.dk</a></li><li><a href="#">Horsensvej 42</a></li><li><a href="#">7100 Vejle</a></li></ul></div>
+      <div class="footer-col"><h4>&Aring;bent</h4><ul><li><a href="#">Man–Fre: 07–16</a></li><li><a href="#">L&oslash;rdag: 08–12</a></li><li><a href="#" style="color:var(--teal)">N&oslash;dservice d&oslash;gnet rundt</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2026 Hansen VVS &amp; Blikkenslager &middot; CVR 12345678</div>
-      <div class="footer-credit">Lavet af <a href="https://revise.dk">Revise</a></div>
-    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Hansen VVS &middot; CVR 12345678</span><span class="footer-credit">Lavet af <a href="https://revise.dk">Revise</a></span></div>
   </div>
 </footer>
 
-<!-- ═══ STICKY MOBILE CTA ═══ -->
-<div class="mobile-cta-bar">
-  <a href="tel:+4575823419" class="mcta-call">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-    Ring nu
-  </a>
-  <a href="#kontakt" class="mcta-form">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-    F&aring; tilbud
-  </a>
+<div class="mobile-bar">
+  <a href="tel:+4575823419" class="mcta-call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Ring nu</a>
+  <a href="#kontakt" class="mcta-msg">F&aring; tilbud</a>
 </div>
 
 <script>
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(function(el) { obs.observe(el); });
-  setTimeout(function() {
-    document.querySelectorAll('.fade-in:not(.vis)').forEach(function(el) { el.classList.add('vis'); });
-  }, 800);
+var o=new IntersectionObserver(function(e){e.forEach(function(i){if(i.isIntersecting){i.target.classList.add('v');o.unobserve(i.target)}})},{threshold:.1});
+document.querySelectorAll('.fi').forEach(function(e){o.observe(e)});
+setTimeout(function(){document.querySelectorAll('.fi:not(.v)').forEach(function(e){e.classList.add('v')})},600);
 </script>
-
 </body>
 </html>
