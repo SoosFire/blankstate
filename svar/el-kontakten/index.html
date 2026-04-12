@@ -164,18 +164,19 @@
 
   // Send notification to Jonas via ntfy.sh
   // Jonas subscribes to this topic in the ntfy app on his phone
-  var emoji = r === 'ja' ? '🟢' : '🔴';
   var status = r === 'ja' ? 'INTERESSERET' : 'Ikke interesseret';
+  var action = r === 'ja' ? 'Vil gerne hoere mere' : 'Ikke interesseret';
+  var tid = new Date().toLocaleString('da-DK');
 
   fetch('https://ntfy.sh/revise-leads-dk', {
     method: 'POST',
     headers: {
-      'Title': emoji + ' ' + firma + ' — ' + status,
+      'Title': firma + ' - ' + status,
       'Tags': r === 'ja' ? 'white_check_mark' : 'x',
       'Priority': r === 'ja' ? '4' : '3'
     },
-    body: firma + ' har klikket "' + (r === 'ja' ? 'Vil gerne høre mere' : 'Ikke interesseret') + '" i pitch-mailen.\n\nTidspunkt: ' + new Date().toLocaleString('da-DK')
-  }).catch(function() {});
+    body: firma + ' har klikket "' + action + '" i pitch-mailen.\n\nTidspunkt: ' + tid
+  }).catch(function(e) { console.log('ntfy error:', e); });
 })();
 </script>
 
