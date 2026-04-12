@@ -1492,14 +1492,14 @@ body.transitioning {
 }
 
 .laptop-screen {
-  background: #1a1714;
-  border: 3px solid #c0bdb6;
+  background: #b5b1a9;
+  border: 2px solid #a8a49c;
   border-radius: 12px 12px 0 0;
-  padding: 16px;
+  padding: 10px;
   aspect-ratio: 16 / 10;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 12px 48px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 48px rgba(26,23,20,0.1), 0 2px 8px rgba(26,23,20,0.06);
 }
 
 .laptop-base {
@@ -1528,20 +1528,20 @@ body.transitioning {
 }
 
 .phone-frame {
-  background: #1a1714;
-  border: 3px solid #c0bdb6;
+  background: #b5b1a9;
+  border: 2px solid #a8a49c;
   border-radius: 24px;
-  padding: 14px 8px 18px;
+  padding: 10px 6px 14px;
   aspect-ratio: 9 / 19;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 12px 48px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 48px rgba(26,23,20,0.1), 0 2px 8px rgba(26,23,20,0.06);
 }
 
 .phone-notch {
   width: 60px;
   height: 6px;
-  background: #2a2520;
+  background: #a8a49c;
   border-radius: 10px;
   margin: 0 auto 10px;
 }
