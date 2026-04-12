@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revise — Tak for dit svar</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0a;
+    color: #eeebe4;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    max-width: 480px;
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .logo {
+    margin-bottom: 40px;
+    opacity: 0.5;
+  }
+  .icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 24px;
+  }
+  .icon.yes { background: rgba(12, 206, 107, 0.12); }
+  .icon.no { background: rgba(238, 235, 228, 0.06); }
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 14px;
+  }
+  .desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(238, 235, 228, 0.55);
+    margin-bottom: 32px;
+  }
+  .contact-card {
+    background: rgba(238, 235, 228, 0.04);
+    border: 1px solid rgba(238, 235, 228, 0.08);
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-align: left;
+    margin-bottom: 32px;
+  }
+  .contact-card .name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .contact-card .title {
+    font-size: 13px;
+    color: rgba(238, 235, 228, 0.4);
+    margin-bottom: 12px;
+  }
+  .contact-card a {
+    display: block;
+    font-size: 14px;
+    color: rgba(238, 235, 228, 0.7);
+    text-decoration: none;
+    margin-bottom: 4px;
+  }
+  .contact-card a:hover { color: #eeebe4; }
+  .call-btn {
+    display: inline-block;
+    background: #eeebe4;
+    color: #0a0a0a;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: -0.1px;
+    transition: opacity 0.2s;
+  }
+  .call-btn:hover { opacity: 0.85; }
+  .back-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(238, 235, 228, 0.3);
+    text-decoration: none;
+  }
+  .back-link:hover { color: rgba(238, 235, 228, 0.5); }
+
+  /* State visibility */
+  .state-yes, .state-no, .state-default { display: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Logo -->
+  <div class="logo">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+      <rect x="6" y="6" width="68" height="68" fill="none" stroke="#eeebe4" stroke-width="3" rx="5"/>
+      <polygon points="74,6 74,34 46,6" fill="#eeebe4" opacity="0.18"/>
+      <line x1="46" y1="6" x2="74" y2="34" stroke="#eeebe4" stroke-width="2" opacity="0.45"/>
+    </svg>
+  </div>
+
+  <!-- YES state -->
+  <div class="state-yes">
+    <div class="icon yes">&#10003;</div>
+    <h1>Fedt, vi gl&aelig;der os!</h1>
+    <p class="desc">Tak fordi I er interesserede. Jonas vender tilbage inden for 24 timer for at aftale et kort opkald.</p>
+    <div class="contact-card">
+      <div class="name">Jonas Hansen</div>
+      <div class="title">Founder &mdash; Revise</div>
+      <a href="tel:+4523907290">+45 23 90 72 90</a>
+      <a href="mailto:jonas@revise.dk">jonas@revise.dk</a>
+    </div>
+    <a href="tel:+4523907290" class="call-btn">Ring mig direkte</a>
+  </div>
+
+  <!-- NO state -->
+  <div class="state-no">
+    <div class="icon no">&#128075;</div>
+    <h1>Helt i orden!</h1>
+    <p class="desc">Tak fordi I tog jer tid til at kigge. Hvis I p&aring; et tidspunkt f&aring;r brug for en ny hjemmeside, er I altid velkomne til at skrive.</p>
+    <a href="mailto:jonas@revise.dk" class="call-btn" style="background: transparent; color: #eeebe4; border: 1px solid rgba(238,235,228,0.15);">Skriv alligevel</a>
+  </div>
+
+  <!-- Default state (no parameter) -->
+  <div class="state-default">
+    <h1>Revise</h1>
+    <p class="desc">Vi bygger moderne hjemmesider til h&aring;ndv&aelig;rkere.</p>
+    <a href="https://revise.dk" class="call-btn">Bes&oslash;g revise.dk</a>
+  </div>
+
+  <a href="https://revise.dk" class="back-link">revise.dk</a>
+</div>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var r = params.get('r');
+  var firma = 'El-Kontakten Give';
+
+  // Show correct state
+  if (r === 'ja') {
+    document.querySelector('.state-yes').style.display = 'block';
+  } else if (r === 'nej') {
+    document.querySelector('.state-no').style.display = 'block';
+  } else {
+    document.querySelector('.state-default').style.display = 'block';
+    return; // Don't notify for direct visits
+  }
+
+  // Send notification to Jonas via ntfy.sh
+  // Jonas subscribes to this topic in the ntfy app on his phone
+  var emoji = r === 'ja' ? '🟢' : '🔴';
+  var status = r === 'ja' ? 'INTERESSERET' : 'Ikke interesseret';
+
+  fetch('https://ntfy.sh/revise-leads-dk', {
+    method: 'POST',
+    headers: {
+      'Title': emoji + ' ' + firma + ' — ' + status,
+      'Tags': r === 'ja' ? 'white_check_mark' : 'x',
+      'Priority': r === 'ja' ? '4' : '3'
+    },
+    body: firma + ' har klikket "' + (r === 'ja' ? 'Vil gerne høre mere' : 'Ikke interesseret') + '" i pitch-mailen.\n\nTidspunkt: ' + new Date().toLocaleString('da-DK')
+  }).catch(function() {});
+})();
+</script>
+
+</body>
+</html>
