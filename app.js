@@ -45,6 +45,30 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
+// ─── Nav Theme Toggle (dark sections invert nav) ───
+const darkSections = document.querySelectorAll('.section-dark');
+if (nav && darkSections.length) {
+  const navThemeObs = new IntersectionObserver((entries) => {
+    // Check if any dark section is at the top of the viewport
+    let inDark = false;
+    darkSections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 80 && rect.bottom > 80) inDark = true;
+    });
+    nav.classList.toggle('nav-dark', inDark);
+  }, { threshold: 0, rootMargin: '-79px 0px -80% 0px' });
+
+  // Observe with scroll instead for more reliable detection
+  window.addEventListener('scroll', () => {
+    let inDark = false;
+    darkSections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 80 && rect.bottom > 80) inDark = true;
+    });
+    nav.classList.toggle('nav-dark', inDark);
+  }, { passive: true });
+}
+
 // ─── Cursor Spotlight on Service Cards ───
 document.querySelectorAll('.service-card').forEach(card => {
   card.addEventListener('mousemove', e => {
