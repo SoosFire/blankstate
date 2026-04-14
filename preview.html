@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revise &mdash; Vi reviderer din digitale tilstedev&aelig;relse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#f5f5f7;
+  --bg-white:#fff;
+  --bg-subtle:#eeeef0;
+  --border:rgba(0,0,0,.06);
+  --text:#1d1d1f;
+  --text-mid:#6e6e73;
+  --text-light:#86868b;
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'DM Sans',-apple-system,sans-serif;
+  --max:1080px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;padding:0 clamp(20px,4vw,48px);transition:all .3s}
+.nav.scrolled{background:rgba(245,245,247,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.5px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--text);color:var(--bg);padding:8px 20px;border-radius:100px;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s}
+.nav-cta:hover{opacity:.8}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px clamp(20px,4vw,48px) 60px;position:relative;background:linear-gradient(180deg,#f5f5f7 0%,#e8e8ed 100%)}
+.hero-label{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:24px}
+.hero h1{font-family:var(--serif);font-size:clamp(44px,7vw,80px);font-weight:700;line-height:1.05;letter-spacing:-2px;margin-bottom:20px;max-width:700px}
+.hero h1 em{font-style:italic;color:var(--text-mid)}
+.hero-desc{font-size:18px;color:var(--text-mid);line-height:1.7;margin-bottom:40px;max-width:480px;font-weight:300}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:80px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s}
+.btn-dark{background:var(--text);color:var(--bg-white)}
+.btn-dark:hover{opacity:.85;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid rgba(0,0,0,.15)}
+.btn-ghost:hover{border-color:var(--text)}
+
+/* ── MACBOOK MOCKUP ── */
+.macbook{position:relative;width:100%;max-width:920px;margin:0 auto}
+.macbook-inner{position:relative;filter:drop-shadow(0 30px 60px rgba(0,0,0,.15)) drop-shadow(0 10px 20px rgba(0,0,0,.1))}
+.macbook-frame{width:100%;display:block;position:relative;z-index:1;pointer-events:none}
+.macbook-screen{position:absolute;z-index:2;top:5.8%;left:13%;width:74%;height:62%;object-fit:cover;object-position:top;border-radius:1px}
+
+/* ── STATS ── */
+.stats{padding:80px clamp(20px,4vw,48px);background:var(--bg-white)}
+.stats-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+.stat-num{font-family:var(--serif);font-size:clamp(36px,4vw,52px);font-weight:700;color:var(--text);line-height:1;letter-spacing:-1px}
+.stat-label{font-size:13px;color:var(--text-light);margin-top:8px;font-weight:400}
+
+/* ── SECTION HELPERS ── */
+.s-pad{padding:clamp(80px,10vw,120px) clamp(20px,4vw,48px)}
+.s-inner{max-width:var(--max);margin:0 auto}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-light);margin-bottom:16px}
+.s-h2{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-1px;line-height:1.1;margin-bottom:20px}
+.s-desc{font-size:16px;line-height:1.8;color:var(--text-mid);max-width:480px;font-weight:300}
+
+/* ── SERVICES ── */
+.services{background:var(--bg-white)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:48px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.srv-card{background:var(--bg-white);padding:40px 32px}
+.srv-num{font-family:var(--serif);font-size:13px;font-weight:600;color:var(--text-light);margin-bottom:20px}
+.srv-card h3{font-size:20px;font-weight:700;margin-bottom:10px;letter-spacing:-.3px}
+.srv-card p{font-size:14px;color:var(--text-mid);line-height:1.7}
+
+/* ── TRANSFORMATION ── */
+.transform{background:var(--bg)}
+.transform-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;margin-top:48px;align-items:center}
+.transform-card{background:var(--bg-white);border-radius:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:all .4s}
+.transform-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.08)}
+.transform-img{overflow:hidden;position:relative}
+.transform-img img{width:100%;display:block;transition:transform .5s}
+.transform-card:hover .transform-img img{transform:scale(1.02)}
+.transform-tag{position:absolute;top:16px;left:16px;padding:6px 16px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.tag-before{background:rgba(232,69,60,.1);color:#e8453c;backdrop-filter:blur(8px)}
+.tag-after{background:rgba(30,168,59,.1);color:#1ea83b;backdrop-filter:blur(8px)}
+.transform-body{padding:24px 28px 28px}
+.transform-card h3{font-size:17px;font-weight:700;margin-bottom:6px;letter-spacing:-.2px}
+.transform-card p{font-size:14px;color:var(--text-mid);line-height:1.6}
+.transform-arrow{display:flex;align-items:center;justify-content:center;font-size:32px;color:var(--text-light);font-weight:300}
+.transform-link{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;transition:gap .2s}
+.transform-link:hover{gap:10px}
+
+/* ── LIGHTHOUSE ── */
+.lighthouse{background:var(--bg-white)}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+.ba-card{border-radius:20px;padding:36px;border:1px solid var(--border)}
+.ba-after{border-color:rgba(30,168,59,.15);background:linear-gradient(135deg,#f8fdf9,#fff)}
+.ba-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:24px}
+.ba-tag-red{background:#fff0ef;color:#e8453c}
+.ba-tag-green{background:#eefbf0;color:#1ea83b}
+.ba-scores{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.ba-score{text-align:center;padding:20px 8px;border-radius:14px;background:var(--bg)}
+.ba-score-num{font-family:var(--serif);font-size:36px;font-weight:700;line-height:1;letter-spacing:-1px}
+.ba-score-num.red{color:#e8453c}
+.ba-score-num.orange{color:#e89a3c}
+.ba-score-num.green{color:#1ea83b}
+.ba-score-label{font-size:11px;color:var(--text-light);margin-top:6px}
+.ba-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ba-list li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-mid)}
+.ba-list .x{color:#e8453c;font-weight:700}
+.ba-list .ok{color:#1ea83b;font-weight:700}
+
+/* ── PROCESS ── */
+.process{background:var(--bg)}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.process-card{background:var(--bg-white);border-radius:20px;padding:36px 28px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.process-step{font-family:var(--serif);font-size:40px;font-weight:700;color:var(--bg-subtle);line-height:1;margin-bottom:20px;letter-spacing:-1px}
+.process-card h3{font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-.2px}
+.process-card p{font-size:14px;color:var(--text-mid);line-height:1.7}
+
+/* ── CTA ── */
+.cta{background:var(--text);color:var(--bg-white);text-align:center;border-radius:24px;margin:0 clamp(20px,4vw,48px);padding:clamp(60px,8vw,100px) clamp(20px,4vw,48px)}
+.cta-wrap{margin-bottom:clamp(60px,8vw,100px)}
+.cta .s-h2{color:var(--bg-white)}
+.cta .s-desc{color:rgba(255,255,255,.45);margin:0 auto 40px}
+.btn-white{background:var(--bg-white);color:var(--text);padding:16px 36px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+
+/* ── FOOTER ── */
+.footer{padding:32px clamp(20px,4vw,48px)}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-left{font-size:12px;color:var(--text-light)}
+.footer-right{display:flex;gap:24px}
+.footer-right a{font-size:12px;color:var(--text-light);text-decoration:none;transition:color .2s}
+.footer-right a:hover{color:var(--text)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .transform-grid{grid-template-columns:1fr;gap:16px}
+  .transform-arrow{transform:rotate(90deg)}
+  .ba-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .stats-inner{grid-template-columns:1fr 1fr;gap:24px}
+  .srv-grid,.process-grid{grid-template-columns:1fr}
+  .hero h1{letter-spacing:-1px}
+  .cta{margin:0 12px;border-radius:20px}
+}
+
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.25,.1,.25,1),transform .8s cubic-bezier(.25,.1,.25,1)}
+.r.v{opacity:1;transform:none}
+.r-d1{transition-delay:.1s}
+.r-d2{transition-delay:.2s}
+.r-d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">revise</a>
+    <ul class="nav-links">
+      <li><a href="#ydelser">Ydelser</a></li>
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="#proces">Proces</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="#kontakt" class="nav-cta">Start dit projekt</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label r">Strategi &middot; Design &middot; Udvikling</div>
+  <h1 class="r r-d1">Din hjemmeside,<br><em>revideret.</em></h1>
+  <p class="hero-desc r r-d2">Vi designer og udvikler moderne hjemmesider der skiller sig ud &mdash; og skaber resultater for din virksomhed.</p>
+  <div class="hero-actions r r-d2">
+    <a href="#kontakt" class="btn btn-dark">Start dit projekt &rarr;</a>
+    <a href="#cases" class="btn btn-ghost">Se vores arbejde</a>
+  </div>
+  <div class="macbook r r-d3">
+    <div class="macbook-inner">
+      <img class="macbook-screen" src="assets/slide-efter.jpg" alt="Hansen VVS — professionel hjemmeside bygget af Revise">
+      <img class="macbook-frame" src="https://pngimg.com/uploads/macbook/macbook_PNG2.png" alt="" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="r"><div class="stat-num">4x</div><div class="stat-label">Hurtigere load-tid</div></div>
+    <div class="r r-d1"><div class="stat-num">97+</div><div class="stat-label">Google Lighthouse</div></div>
+    <div class="r r-d2"><div class="stat-num">100%</div><div class="stat-label">Mobil-optimeret</div></div>
+    <div class="r r-d3"><div class="stat-num">24t</div><div class="stat-label">Svar p&aring; henvendelse</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services s-pad" id="ydelser">
+  <div class="s-inner">
+    <div class="eyebrow r">Ydelser</div>
+    <h2 class="s-h2 r">Alt du har brug for.<br>Intet du ikke har.</h2>
+    <p class="s-desc r">Fra design til deployment &mdash; altid med fokus p&aring; kvalitet, hastighed og dit brands identitet.</p>
+    <div class="srv-grid r">
+      <div class="srv-card">
+        <div class="srv-num">01</div>
+        <h3>Webdesign</h3>
+        <p>Skr&aelig;ddersyede designs der reflekterer dit brand. Ingen templates &mdash; alt bygges fra bunden med din vision i centrum.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-num">02</div>
+        <h3>Udvikling</h3>
+        <p>Clean code, hurtige load-tider, og responsivt design. Vi bygger med moderne teknologier der skalerer med din forretning.</p>
+      </div>
+      <div class="srv-card">
+        <div class="srv-num">03</div>
+        <h3>SEO &amp; Performance</h3>
+        <p>Optimeret til s&oslash;gemaskiner fra dag &eacute;t. Vi s&oslash;rger for at din side er hurtig, tilg&aelig;ngelig og synlig.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section class="transform s-pad" id="cases">
+  <div class="s-inner">
+    <div class="eyebrow r">Cases</div>
+    <h2 class="s-h2 r">Samme virksomhed.<br>Helt nyt f&oslash;rsteindtryk.</h2>
+    <p class="s-desc r">Hansen VVS i Vejle &mdash; fra en hjemmeside fra 2008 til en moderne platform der konverterer bes&oslash;gende til kunder.</p>
+    <div class="transform-grid">
+      <div class="transform-card r">
+        <div class="transform-img">
+          <img src="assets/slide-foer.jpg" alt="Hansen VVS — gammel hjemmeside">
+          <div class="transform-tag tag-before">F&oslash;r</div>
+        </div>
+        <div class="transform-body">
+          <h3>hansenvvs.dk &mdash; f&oslash;r</h3>
+          <p>Tabel-layout fra 2008. Ikke mobilvenlig, ingen SSL, loadtid p&aring; 8+ sekunder. Lighthouse score: 23.</p>
+          <a href="demo/foer/" class="transform-link">Se den gamle side &rarr;</a>
+        </div>
+      </div>
+      <div class="transform-arrow r">&#8594;</div>
+      <div class="transform-card r r-d1">
+        <div class="transform-img">
+          <img src="assets/slide-efter.jpg" alt="Hansen VVS — ny hjemmeside af Revise">
+          <div class="transform-tag tag-after">Efter</div>
+        </div>
+        <div class="transform-body">
+          <h3>hansenvvs.dk &mdash; efter</h3>
+          <p>Moderne design med SEO, schema markup og mobilvenligt layout. Lighthouse score: 97. Loadtid: 0.8s.</p>
+          <a href="demo/efter/" class="transform-link">Se den nye side &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTHOUSE -->
+<section class="lighthouse s-pad">
+  <div class="s-inner">
+    <div class="eyebrow r">F&oslash;r &amp; efter</div>
+    <h2 class="s-h2 r">M&aring;lt med Googles<br>egne standarder.</h2>
+    <p class="s-desc r">Se forskellen en revision g&oslash;r &mdash; direkte fra Google Lighthouse.</p>
+    <div class="ba-grid">
+      <div class="ba-card r">
+        <div class="ba-tag ba-tag-red">F&oslash;r revision</div>
+        <div class="ba-scores">
+          <div class="ba-score"><div class="ba-score-num red">23</div><div class="ba-score-label">Performance</div></div>
+          <div class="ba-score"><div class="ba-score-num red">38</div><div class="ba-score-label">Tilg&aelig;ngelighed</div></div>
+          <div class="ba-score"><div class="ba-score-num orange">52</div><div class="ba-score-label">Best Practices</div></div>
+          <div class="ba-score"><div class="ba-score-num red">41</div><div class="ba-score-label">SEO</div></div>
+        </div>
+        <ul class="ba-list">
+          <li><span class="x">&#10005;</span> Loadtid: 8.2 sekunder</li>
+          <li><span class="x">&#10005;</span> Ikke mobilvenlig</li>
+          <li><span class="x">&#10005;</span> Mangler SSL-certifikat</li>
+        </ul>
+      </div>
+      <div class="ba-card ba-after r r-d1">
+        <div class="ba-tag ba-tag-green">Efter revision</div>
+        <div class="ba-scores">
+          <div class="ba-score"><div class="ba-score-num green">97</div><div class="ba-score-label">Performance</div></div>
+          <div class="ba-score"><div class="ba-score-num green">95</div><div class="ba-score-label">Tilg&aelig;ngelighed</div></div>
+          <div class="ba-score"><div class="ba-score-num green">100</div><div class="ba-score-label">Best Practices</div></div>
+          <div class="ba-score"><div class="ba-score-num green">98</div><div class="ba-score-label">SEO</div></div>
+        </div>
+        <ul class="ba-list">
+          <li><span class="ok">&#10003;</span> Loadtid: 0.8 sekunder</li>
+          <li><span class="ok">&#10003;</span> Fuldt mobilvenlig</li>
+          <li><span class="ok">&#10003;</span> SSL-sikret forbindelse</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process s-pad" id="proces">
+  <div class="s-inner">
+    <div class="eyebrow r">S&aring;dan arbejder vi</div>
+    <h2 class="s-h2 r">Fra id&eacute; til lancering<br>p&aring; 14 dage.</h2>
+    <p class="s-desc r">Ingen un&oslash;dvendige m&oslash;der eller lange processer. Vi g&aring;r direkte til sagen.</p>
+    <div class="process-grid">
+      <div class="process-card r">
+        <div class="process-step">01</div>
+        <h3>Strategi</h3>
+        <p>En kort samtale om din virksomhed, dine kunder og dine m&aring;l. Vi analyserer din nuv&aelig;rende side og laver en plan.</p>
+      </div>
+      <div class="process-card r r-d1">
+        <div class="process-step">02</div>
+        <h3>Design &amp; Udvikling</h3>
+        <p>Design og udvikling k&oslash;rer parallelt. Du f&aring;r en live preview du kan f&oslash;lge med i og give feedback undervejs.</p>
+      </div>
+      <div class="process-card r r-d2">
+        <div class="process-step">03</div>
+        <h3>Lancering</h3>
+        <p>Vi s&aelig;tter den i produktion, ops&aelig;tter analytics og s&oslash;rger for at alt performer som det skal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-wrap">
+<section class="cta" id="kontakt">
+  <div class="eyebrow r" style="color:rgba(255,255,255,.3)">Kontakt</div>
+  <h2 class="s-h2 r">Klar til at starte?</h2>
+  <p class="s-desc r" style="color:rgba(255,255,255,.45);margin:0 auto 40px">Fort&aelig;l os om din virksomhed &mdash; vi vender tilbage inden for 24 timer med en plan og et tilbud.</p>
+  <a href="mailto:kontakt@revise.dk" class="btn-white r">Kontakt os &rarr;</a>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">&copy; 2026 Revise. Alle rettigheder forbeholdes.</div>
+    <div class="footer-right">
+      <a href="mailto:kontakt@revise.dk">kontakt@revise.dk</a>
+      <a href="tel:+4523907290">+45 23 90 72 90</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)});
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');ro.unobserve(e.target)}});
+},{threshold:.08,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.r').forEach(function(el){ro.observe(el)});
+</script>
+</body>
+</html>
