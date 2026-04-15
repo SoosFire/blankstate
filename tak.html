@@ -178,9 +178,9 @@
   <svg viewBox="0 0 24 24"><polyline points="6 12 10 16 18 8"/></svg>
 </div>
 
-<h1>Tak for din henvendelse.</h1>
-<p>Vi har modtaget din besked og vender tilbage inden for 24 timer med et uforpligtende bud.</p>
-<p>Vi gennemgår dit projekt grundigt inden vi svarer — så vi kan give dig et præcist og ærligt svar fra start.</p>
+<h1 id="thanksTitle">Tak for din henvendelse.</h1>
+<p id="thanksText1">Vi har modtaget din besked og vender tilbage inden for 24 timer med et uforpligtende bud.</p>
+<p id="thanksText2">Vi gennemg&aring;r dit projekt grundigt inden vi svarer &mdash; s&aring; vi kan give dig et pr&aelig;cist og &aelig;rligt svar fra start.</p>
 
 <div class="timeline">
   <span class="dot"></span>
@@ -192,6 +192,18 @@
   <a href="loesninger.html" class="link-secondary">Se vores l&oslash;sninger</a>
 </div>
 
+<script>
+// Customize message for analyse-forespurgsel
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  if(params.get('type')==='analyse'){
+    document.getElementById('thanksTitle').textContent='Tak! Vi analyserer din side nu.';
+    document.getElementById('thanksText1').textContent='Du modtager en komplet rapport på email inden for 24 timer.';
+    document.getElementById('thanksText2').textContent='Vi kigger på performance, SEO, tilgængelighed og konkrete forbedringspunkter — og giver dig et ærligt overblik uden forpligtelser.';
+    document.title='Tak for din forespurgsel — Revise';
+  }
+})();
+</script>
 <script src="cookie-consent.js" defer></script>
 </body>
 </html>
