@@ -141,6 +141,39 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 .btn-white{background:var(--bg-white);color:var(--text);padding:16px 36px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
 .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
 
+/* ── SERVICE CARD PRICE ── */
+.srv-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:background .25s}
+.srv-card:hover{background:var(--bg-subtle)}
+.srv-card p{flex:1}
+.srv-price{margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:13px;font-weight:600;color:var(--text);letter-spacing:-.1px}
+.srv-price span{color:var(--text-light);font-weight:400;margin-right:4px}
+
+/* ── FAQ ── */
+.faq{background:var(--bg-white)}
+.faq-grid{max-width:760px;margin:48px auto 0;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--bg);border-radius:16px;border:1px solid var(--border);overflow:hidden;transition:background .25s}
+.faq-item[open]{background:var(--bg-white);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.faq-item summary{padding:22px 28px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;font-weight:600;color:var(--text);letter-spacing:-.2px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-family:var(--serif);font-size:26px;font-weight:400;color:var(--text-light);transition:transform .25s;line-height:1;flex-shrink:0}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item-body{padding:0 28px 24px;font-size:14.5px;color:var(--text-mid);line-height:1.75}
+.faq-item-body a{color:var(--text);text-decoration:underline;text-decoration-color:rgba(0,0,0,.2);text-underline-offset:2px}
+.faq-item-body a:hover{text-decoration-color:var(--text)}
+
+/* ── STEPS (Sådan kommer du i gang) ── */
+.steps{background:var(--bg)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;position:relative}
+.steps-grid::before{content:'';position:absolute;top:24px;left:8%;right:8%;height:1px;background:var(--border);z-index:0}
+.step{position:relative;text-align:center;z-index:1}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--bg-white);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:700;color:var(--text);margin:0 auto 20px}
+.step h3{font-size:17px;font-weight:700;margin-bottom:8px;letter-spacing:-.2px}
+.step p{font-size:14px;color:var(--text-mid);line-height:1.7;max-width:260px;margin:0 auto}
+
+/* ── STICKY MOBILE CTA ── */
+.sticky-cta{position:fixed;bottom:16px;left:16px;right:16px;z-index:90;display:none;padding:14px 24px;background:var(--text);color:var(--bg-white);border-radius:100px;text-align:center;font-family:var(--sans);font-size:14px;font-weight:600;text-decoration:none;box-shadow:0 4px 24px rgba(0,0,0,.2);transform:translateY(120%);transition:transform .3s ease}
+.sticky-cta.show{transform:translateY(0)}
+
 /* ── FOOTER ── */
 .footer{padding:32px clamp(20px,4vw,48px)}
 .footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
@@ -158,9 +191,14 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 @media(max-width:768px){
   .nav-links{display:none}
   .stats-inner{grid-template-columns:1fr 1fr;gap:24px}
-  .srv-grid,.process-grid{grid-template-columns:1fr}
+  .srv-grid,.process-grid,.steps-grid{grid-template-columns:1fr}
+  .steps-grid::before{display:none}
   .hero h1{letter-spacing:-1px}
   .cta{margin:0 12px;border-radius:20px}
+  .faq-item summary{padding:18px 22px;font-size:15px}
+  .faq-item-body{padding:0 22px 20px}
+  .sticky-cta{display:block}
+  .footer{padding-bottom:90px}
 }
 
 /* ── REVEAL ── */
@@ -181,6 +219,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
       <li><a href="ydelser.html">Ydelser</a></li>
       <li><a href="loesninger.html">L&oslash;sninger</a></li>
       <li><a href="om.html">Om os</a></li>
+      <li><a href="blog/">Blog</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
     <a href="kontakt.html" class="nav-cta">Start dit projekt</a>
@@ -218,21 +257,24 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
     <h2 class="s-h2 r">Alt du har brug for.<br>Intet du ikke har.</h2>
     <p class="s-desc r">Fra design til deployment &mdash; altid med fokus p&aring; kvalitet, hastighed og dit brands identitet.</p>
     <div class="srv-grid r">
-      <div class="srv-card">
+      <a href="ydelser.html" class="srv-card">
         <div class="srv-num">01</div>
         <h3>Webdesign</h3>
         <p>Skr&aelig;ddersyede designs der reflekterer dit brand. Ingen templates &mdash; alt bygges fra bunden med din vision i centrum.</p>
-      </div>
-      <div class="srv-card">
+        <div class="srv-price"><span>Fra</span>8.995 kr.</div>
+      </a>
+      <a href="ydelser.html" class="srv-card">
         <div class="srv-num">02</div>
         <h3>Udvikling</h3>
         <p>Clean code, hurtige load-tider, og responsivt design. Vi bygger med moderne teknologier der skalerer med din forretning.</p>
-      </div>
-      <div class="srv-card">
+        <div class="srv-price"><span>Fra</span>17.995 kr.</div>
+      </a>
+      <a href="ydelser.html" class="srv-card">
         <div class="srv-num">03</div>
         <h3>SEO &amp; Performance</h3>
         <p>Optimeret til s&oslash;gemaskiner fra dag &eacute;t. Vi s&oslash;rger for at din side er hurtig, tilg&aelig;ngelig og synlig.</p>
-      </div>
+        <div class="srv-price"><span>Fra</span>2.995 kr.</div>
+      </a>
     </div>
   </div>
 </section>
@@ -298,24 +340,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
   </div>
 </section>
 
-<!-- SOCIAL PROOF -->
-<section class="proof s-pad">
-  <div class="proof-inner">
-    <div class="proof-stars r">
-      <svg class="proof-star" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#00b67a"/></svg>
-      <svg class="proof-star" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#00b67a"/></svg>
-      <svg class="proof-star" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#00b67a"/></svg>
-      <svg class="proof-star" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#00b67a"/></svg>
-      <svg class="proof-star" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#00b67a"/></svg>
-    </div>
-    <blockquote class="proof-quote r r-d1">&ldquo;Vi fik en helt ny hjemmeside p&aring; under to uger. Den er hurtig, flot og vi f&aring;r allerede flere henvendelser end f&oslash;r.&rdquo;</blockquote>
-    <div class="proof-author r r-d2">
-      <span class="proof-name">Michael Hansen</span>
-      <span class="proof-role">Indehaver, Hansen VVS &mdash; Vejle</span>
-    </div>
-    <div class="proof-tp r r-d2">
-      <svg viewBox="0 0 126 31" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M33.4 12.7l-10.2-1.5L18.6 1.6 14 11.2 3.8 12.7l7.4 7.2-1.7 10.2 9.1-4.8 9.1 4.8-1.7-10.2 7.4-7.2z" fill="#00b67a"/><path d="M23.5 22.1l-.8-4.8 3.5-3.4-4.8-.7L18.6 9l-2.8 4.2-4.8.7 3.5 3.4-.8 4.8 4.9-2.2 4.9 2.2z" fill="#005128"/><text x="40" y="22" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#1d1d1f">Trustpilot</text></svg>
-      <span>4.9 / 5 &middot; Fremragende</span>
+<!-- FAQ -->
+<section class="faq s-pad" id="faq">
+  <div class="s-inner">
+    <div class="eyebrow r">Ofte stillede sp&oslash;rgsm&aring;l</div>
+    <h2 class="s-h2 r">Godt at vide.</h2>
+    <p class="s-desc r">Svarene p&aring; det vi oftest bliver spurgt om. Mangler du noget, s&aring; <a href="kontakt.html" style="color:var(--text);font-weight:500">skriv til os</a>.</p>
+    <div class="faq-grid r">
+      <details class="faq-item">
+        <summary>Hvad koster en hjemmeside?</summary>
+        <div class="faq-item-body">En simpel hjemmeside starter ved 8.995 kr. For custom design med CMS og avanceret SEO starter vi ved 17.995 kr. Du kan se alle pakker og hvad der er inkluderet p&aring; vores <a href="ydelser.html">ydelsesside</a>.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Hvor lang tid tager det at f&aring; en ny hjemmeside?</summary>
+        <div class="faq-item-body">De fleste projekter st&aring;r f&aelig;rdige p&aring; omkring 14 dage fra vi starter. St&oslash;rre e-commerce eller custom funktionalitet kan tage 3&ndash;4 uger. Vi giver dig en konkret tidsplan inden vi starter.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Kan jeg selv redigere teksten p&aring; siden bagefter?</summary>
+        <div class="faq-item-body">Ja. Vi kan bygge din side med et CMS (f.eks. WordPress eller en letvægts-l&oslash;sning) s&aring; du selv kan opdatere tekst og billeder uden at kontakte os. Vi viser dig hvordan efter launch.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Hvad sker der efter hjemmesiden er lanceret?</summary>
+        <div class="faq-item-body">Du har fri adgang til os de f&oslash;rste 30 dage for sp&oslash;rgsm&aring;l og sm&aring; justeringer. Herefter kan du enten klare tingene selv, eller tegne en vedligeholdelsesaftale hvis vi skal st&aring; for opdateringer, backup og sikkerhed.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Ejer jeg selv dom&aelig;net og mit indhold?</summary>
+        <div class="faq-item-body">Ja, altid. Dom&aelig;nenavn, hjemmeside-koden og alt indhold tilh&oslash;rer dig 100%. Vi l&aring;ser dig ikke inde hos os &mdash; du kan flytte til en anden udbyder n&aring;r som helst.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Jeg har allerede en hjemmeside &mdash; kan I forbedre den?</summary>
+        <div class="faq-item-body">Ja. Vi laver ogs&aring; revisioner af eksisterende sider &mdash; det er faktisk derfor vi hedder Revise. Send os din URL, s&aring; f&aring;r du en gratis analyse med konkrete forbedringspunkter.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -346,6 +401,32 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
   </div>
 </section>
 
+<!-- STEPS - Sådan kommer du i gang -->
+<section class="steps s-pad">
+  <div class="s-inner">
+    <div class="eyebrow r">S&aring;dan kommer du i gang</div>
+    <h2 class="s-h2 r">Tre skridt til din<br>nye hjemmeside.</h2>
+    <p class="s-desc r">Vi g&oslash;r det nemt at komme i gang. Ingen forpligtelser &mdash; bare en &aelig;rlig snak om hvad der passer til dig.</p>
+    <div class="steps-grid">
+      <div class="step r">
+        <div class="step-num">1</div>
+        <h3>Send en besked</h3>
+        <p>Skriv kort om din virksomhed og hvad du dr&oslash;mmer om. Tager 2 minutter.</p>
+      </div>
+      <div class="step r r-d1">
+        <div class="step-num">2</div>
+        <h3>Vi snakker 15 minutter</h3>
+        <p>Et uforpligtende opkald hvor vi afklarer dine behov og m&oslash;der hinanden.</p>
+      </div>
+      <div class="step r r-d2">
+        <div class="step-num">3</div>
+        <h3>Du f&aring;r et tilbud</h3>
+        <p>Konkret pris og tidsplan inden for 24 timer. Siger du ja, g&aring;r vi i gang.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <div class="cta-wrap">
 <section class="cta" id="kontakt">
@@ -355,6 +436,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
   <a href="kontakt.html" class="btn-white r">Kontakt os &rarr;</a>
 </section>
 </div>
+
+<!-- STICKY MOBILE CTA -->
+<a href="kontakt.html" class="sticky-cta" id="stickyCta">Start dit projekt &rarr;</a>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -368,9 +452,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 </footer>
 
 <script>
-// Nav blur
+// Nav blur + sticky mobile CTA
 var nav=document.getElementById('nav');
-window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)});
+var stickyCta=document.getElementById('stickyCta');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>40);
+  if(stickyCta)stickyCta.classList.toggle('show',window.scrollY>600);
+},{passive:true});
 
 // Reveal on scroll
 var ro=new IntersectionObserver(function(entries){

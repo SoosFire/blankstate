@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog &mdash; Revise</title>
+<meta name="description" content="Indsigter, guides og inspiration til din digitale tilstedev&aelig;relse. Fra Revise &mdash; dit bureau for moderne hjemmesider.">
+<link rel="canonical" href="https://revise.dk/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#f5f5f7;
+  --bg-white:#fff;
+  --bg-subtle:#eeeef0;
+  --border:rgba(0,0,0,.06);
+  --text:#1d1d1f;
+  --text-mid:#6e6e73;
+  --text-light:#86868b;
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'DM Sans',-apple-system,sans-serif;
+  --max:1080px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;padding:0 clamp(20px,4vw,48px);transition:all .3s}
+.nav.scrolled{background:rgba(245,245,247,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.5px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--text)}
+.nav-cta{background:var(--text);color:var(--bg);padding:8px 20px;border-radius:100px;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s}
+.nav-cta:hover{opacity:.8}
+
+/* ── HERO ── */
+.page-hero{padding:160px clamp(20px,4vw,48px) 80px;text-align:center}
+.page-hero-inner{max-width:var(--max);margin:0 auto}
+.hero-label{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:24px}
+.page-hero h1{font-family:var(--serif);font-size:clamp(36px,5.5vw,56px);font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px}
+.page-hero-desc{font-size:18px;color:var(--text-mid);line-height:1.7;max-width:520px;margin:0 auto;font-weight:300}
+
+/* ── SECTION HELPERS ── */
+.s-pad{padding:0 clamp(20px,4vw,48px) clamp(80px,10vw,120px)}
+.s-inner{max-width:var(--max);margin:0 auto}
+
+/* ── POST GRID ── */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.post{background:var(--bg-white);border-radius:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.03);transition:all .3s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.post:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.post-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);padding:20px 28px 0}
+.post-body{padding:12px 28px 28px;flex:1;display:flex;flex-direction:column}
+.post h2{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.3px;margin-bottom:10px}
+.post p{font-size:14px;color:var(--text-mid);line-height:1.7;flex:1;margin-bottom:20px}
+.post-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-light);border-top:1px solid var(--border);padding-top:16px}
+.post-meta-date{font-weight:500}
+.post-meta-read{color:var(--text);font-weight:600}
+
+/* ── COMING SOON NOTICE ── */
+.soon-notice{max-width:680px;margin:0 auto 48px;padding:20px 28px;background:var(--bg-white);border-radius:16px;border:1px solid var(--border);text-align:center}
+.soon-notice strong{color:var(--text);font-weight:600}
+.soon-notice p{font-size:14px;color:var(--text-mid);line-height:1.7;margin:0}
+
+/* ── FOOTER ── */
+.footer{padding:32px clamp(20px,4vw,48px);border-top:1px solid var(--border)}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-left{font-size:12px;color:var(--text-light)}
+.footer-right{display:flex;gap:24px}
+.footer-right a{font-size:12px;color:var(--text-light);text-decoration:none;transition:color .2s}
+.footer-right a:hover{color:var(--text)}
+
+@media(max-width:1024px){
+  .posts{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .posts{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">revise</a>
+    <ul class="nav-links">
+      <li><a href="../ydelser.html">Ydelser</a></li>
+      <li><a href="../loesninger.html">L&oslash;sninger</a></li>
+      <li><a href="../om.html">Om os</a></li>
+      <li><a href="../kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="../kontakt.html" class="nav-cta">Start dit projekt</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-label">Blog</div>
+    <h1>Indsigter, guides<br>og inspiration.</h1>
+    <p class="page-hero-desc">Vi deler det vi l&aelig;rer om moderne hjemmesider, SEO og digital forretning &mdash; skrevet til dig der har en virksomhed at drive.</p>
+  </div>
+</section>
+
+<!-- POSTS -->
+<section class="s-pad">
+  <div class="s-inner">
+    <div class="soon-notice">
+      <p><strong>Kommer snart.</strong> Vi er i gang med at skrive de f&oslash;rste artikler. S&aelig;t dig p&aring; ventelisten ved at skrive til <a href="mailto:kontakt@revise.dk" style="color:var(--text);font-weight:600;text-decoration:none">kontakt@revise.dk</a>.</p>
+    </div>
+    <div class="posts">
+      <a href="#" class="post">
+        <span class="post-tag">Priser</span>
+        <div class="post-body">
+          <h2>Hvad koster en hjemmeside i 2026?</h2>
+          <p>En gennemgang af hvad du realistisk kan forvente at betale for en ny hjemmeside &mdash; fra DIY-l&oslash;sninger til skr&aelig;ddersyede platforme.</p>
+          <div class="post-meta">
+            <span class="post-meta-date">Kommer snart</span>
+            <span class="post-meta-read">L&aelig;s mere &rarr;</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post">
+        <span class="post-tag">Guide</span>
+        <div class="post-body">
+          <h2>5 tegn p&aring; at din hjemmeside tr&aelig;nger til en revision</h2>
+          <p>Er din hjemmeside stadig en aktiv del af din forretning &mdash; eller bare en digital visitkort der samler st&oslash;v? Her er hvad du skal kigge efter.</p>
+          <div class="post-meta">
+            <span class="post-meta-date">Kommer snart</span>
+            <span class="post-meta-read">L&aelig;s mere &rarr;</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post">
+        <span class="post-tag">Indsigt</span>
+        <div class="post-body">
+          <h2>Hvorfor du b&oslash;r overveje at droppe Wix og Squarespace</h2>
+          <p>DIY-platforme er billige og nemme, men de koster dig p&aring; den lange bane. Vi kigger p&aring; hvorn&aring;r det giver mening at investere i noget rigtigt.</p>
+          <div class="post-meta">
+            <span class="post-meta-date">Kommer snart</span>
+            <span class="post-meta-read">L&aelig;s mere &rarr;</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">&copy; 2026 Revise. Alle rettigheder forbeholdes.</div>
+    <div class="footer-right">
+      <a href="mailto:kontakt@revise.dk">kontakt@revise.dk</a>
+      <a href="tel:+4523907290">+45 23 90 72 90</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+</script>
+<script src="../cookie-consent.js" defer></script>
+</body>
+</html>
