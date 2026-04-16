@@ -785,12 +785,22 @@ window.addEventListener('scroll',function(){
 
     fetch(apiUrl)
       .then(function(r){
-        if(!r.ok)throw new Error('API error '+r.status);
+        if(!r.ok){
+          console.error('[Audit] API error:',r.status,r.statusText);
+          return r.json().then(function(errData){
+            console.error('[Audit] Error details:',errData);
+            throw new Error('API '+r.status);
+          }).catch(function(){throw new Error('API '+r.status)});
+        }
         return r.json();
       })
       .then(function(data){
+        console.log('[Audit] API response received');
         var lhr=data.lighthouseResult;
-        if(!lhr||!lhr.categories)throw new Error('No data');
+        if(!lhr||!lhr.categories){
+          console.error('[Audit] No lighthouse data:',data);
+          throw new Error('No data');
+        }
 
         var cats=[
           {key:'performance',label:'Performance'},
@@ -822,7 +832,19 @@ window.addEventListener('scroll',function(){
         resultsDomain.textContent=domain;
         showState('results');
       })
-      .catch(function(){
+      .catch(function(err){
+        console.error('[Audit] Failed:',err);
+        var errorEl=errorCard.querySelector('p');
+        if(errorEl){
+          var msg='Vi kunne ikke analysere den URL.';
+          if(err&&err.message){
+            if(err.message.indexOf('429')>-1)msg='For mange foresp&oslash;rgsler lige nu. Pr&oslash;v igen om lidt.';
+            else if(err.message.indexOf('400')>-1)msg='URL\'en kunne ikke analyseres. Tjek at den er korrekt og offentligt tilg&aelig;ngelig.';
+            else if(err.message.indexOf('500')>-1||err.message.indexOf('503')>-1)msg='Google\'s analyseservice er nede lige nu. Pr&oslash;v igen om lidt.';
+            else msg='Vi kunne ikke analysere den URL. Tjek at adressen er korrekt og pr&oslash;v igen.';
+          }
+          errorEl.innerHTML=msg;
+        }
         showState('error');
       });
   }
