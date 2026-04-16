@@ -157,10 +157,68 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
 .audit-success-icon{width:32px;height:32px;border-radius:50%;background:#4a8f85;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:700}
 .audit-success h3{font-family:var(--serif);font-size:18px;font-weight:700;margin-bottom:6px;color:var(--text)}
 .audit-success p{font-size:14px;color:var(--text-mid);line-height:1.65}
+/* ── AUDIT: LOADING SPINNER ── */
+@keyframes audit-spin{to{transform:rotate(360deg)}}
+.audit-loading{display:none;flex-direction:column;align-items:center;gap:16px;padding:40px 0}
+.audit-loading.show{display:flex}
+.audit-spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:#4a8f85;border-radius:50%;animation:audit-spin .8s linear infinite}
+.audit-loading-text{font-size:15px;color:var(--text-mid);font-weight:400}
+
+/* ── AUDIT: RESULTS CARD ── */
+@keyframes audit-fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.audit-results{display:none;background:var(--bg-white);border-radius:20px;padding:36px;box-shadow:0 4px 24px rgba(0,0,0,.06);max-width:600px;margin:24px auto 0;animation:audit-fadeIn .5s ease both}
+.audit-results.show{display:block}
+.audit-results-domain{font-size:13px;font-weight:600;color:var(--text-light);letter-spacing:.5px;text-transform:uppercase;margin-bottom:24px}
+
+/* Score gauges row */
+.audit-gauges{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.audit-gauge{display:flex;flex-direction:column;align-items:center;gap:8px}
+.audit-gauge svg{width:80px;height:80px}
+.audit-gauge-bg{fill:none;stroke:var(--bg-subtle);stroke-width:6}
+.audit-gauge-fill{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset .8s ease}
+.audit-gauge-score{font-family:var(--serif);font-size:22px;font-weight:700;fill:var(--text)}
+.audit-gauge-label{font-size:12px;color:var(--text-light);font-weight:500;text-align:center}
+
+/* Key metrics */
+.audit-metrics{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.audit-metric{text-align:center;padding:12px 16px;background:var(--bg);border-radius:12px;min-width:100px}
+.audit-metric-value{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.3px}
+.audit-metric-label{font-size:11px;color:var(--text-light);margin-top:4px}
+
+/* Divider before email step */
+.audit-results-divider{border:none;border-top:1px solid var(--border);margin:28px 0 24px}
+
+/* Email step inside results */
+.audit-email-step{text-align:center}
+.audit-email-step p{font-size:15px;color:var(--text-mid);margin-bottom:16px;line-height:1.6;font-weight:300}
+.audit-email-form{display:flex;gap:8px;background:var(--bg-white);border:1.5px solid var(--border);border-radius:100px;padding:6px;max-width:480px;margin:0 auto;transition:border-color .2s,box-shadow .2s;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.audit-email-form:focus-within{border-color:rgba(74,143,133,.4);box-shadow:0 4px 24px rgba(74,143,133,.1)}
+.audit-email-form input{flex:1;border:none;outline:none;background:transparent;padding:12px 20px;font-family:var(--sans);font-size:15px;color:var(--text);min-width:0}
+.audit-email-form input::placeholder{color:var(--text-light)}
+.audit-email-form button{background:var(--text);color:var(--bg-white);border:none;padding:12px 24px;border-radius:100px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.audit-email-form button:hover{opacity:.88;transform:translateY(-1px)}
+
+/* Error card */
+.audit-error{display:none;background:#fef2f2;border-radius:20px;padding:28px 32px;max-width:560px;margin:24px auto 0;text-align:center;animation:audit-fadeIn .4s ease both}
+.audit-error.show{display:block}
+.audit-error p{font-size:15px;color:#b91c1c;line-height:1.6}
+.audit-error-retry{margin-top:16px;display:inline-flex;align-items:center;gap:6px;background:transparent;border:1.5px solid rgba(185,28,28,.2);color:#b91c1c;padding:10px 24px;border-radius:100px;font-family:var(--sans);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.audit-error-retry:hover{background:rgba(185,28,28,.06)}
+
 @media(max-width:600px){
   .audit-form{flex-direction:column;border-radius:20px;padding:12px}
   .audit-form input{width:100%;padding:14px 16px}
   .audit-form button{width:100%;padding:14px 24px}
+  .audit-gauges{gap:16px}
+  .audit-gauge svg{width:66px;height:66px}
+  .audit-gauge-score{font-size:18px}
+  .audit-metrics{gap:10px}
+  .audit-metric{min-width:70px;padding:10px 10px}
+  .audit-metric-value{font-size:15px}
+  .audit-results{padding:24px 18px}
+  .audit-email-form{flex-direction:column;border-radius:20px;padding:12px}
+  .audit-email-form input{width:100%;padding:14px 16px}
+  .audit-email-form button{width:100%;padding:14px 24px}
 }
 
 /* ── STATS ── */
@@ -355,22 +413,49 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:
     <h2 class="r r-d1">Er din hjemmeside klar til <em>2026?</em></h2>
     <p class="audit-desc r r-d2">F&aring; en gratis rapport med konkrete forbedringspunkter &mdash; performance, SEO, mobilvenlighed og sikkerhed. Ingen forpligtelser.</p>
 
-    <form class="audit-form r r-d2" id="auditForm" action="https://formsubmit.co/kontakt@revise.dk" method="POST">
-      <input type="hidden" name="_subject" value="Ny gratis analyse forespørgsel">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="box">
-      <input type="hidden" name="_next" value="https://revise.dk/tak.html?type=analyse">
-      <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1">
+    <!-- Step 1: URL input (pill form) -->
+    <div class="audit-form r r-d2" id="auditUrlForm">
+      <input type="url" id="auditUrl" placeholder="www.din-hjemmeside.dk">
+      <button type="button" id="auditAnalyse">Analyser &rarr;</button>
+    </div>
 
-      <div class="audit-step active" id="step1">
-        <input type="url" name="url" id="auditUrl" placeholder="www.din-hjemmeside.dk" required>
-        <button type="button" id="auditNext">Analyser &rarr;</button>
+    <!-- Loading state -->
+    <div class="audit-loading" id="auditLoading">
+      <div class="audit-spinner"></div>
+      <div class="audit-loading-text" id="auditLoadingText">Analyserer din side...</div>
+    </div>
+
+    <!-- Error state -->
+    <div class="audit-error" id="auditError">
+      <p>Vi kunne ikke analysere den URL. Tjek at adressen er korrekt og pr&oslash;v igen.</p>
+      <button class="audit-error-retry" id="auditRetry">Pr&oslash;v igen &rarr;</button>
+    </div>
+
+    <!-- Results card -->
+    <div class="audit-results" id="auditResults">
+      <div class="audit-results-domain" id="auditResultsDomain"></div>
+
+      <div class="audit-gauges" id="auditGauges"></div>
+
+      <div class="audit-metrics" id="auditMetrics"></div>
+
+      <hr class="audit-results-divider">
+
+      <!-- Step 2: Email capture inside results -->
+      <div class="audit-email-step" id="auditEmailStep">
+        <p>Vil du have den fulde rapport med konkrete forbedringspunkter?</p>
+        <form class="audit-email-form" id="auditEmailForm" action="https://formsubmit.co/kontakt@revise.dk" method="POST">
+          <input type="hidden" name="_subject" value="Ny gratis analyse forespørgsel">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_next" value="https://revise.dk/tak.html?type=analyse">
+          <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1">
+          <input type="hidden" name="url" id="auditHiddenUrl" value="">
+          <input type="email" name="email" id="auditEmail" placeholder="Din email" required>
+          <button type="submit">F&aring; den fulde rapport</button>
+        </form>
       </div>
-      <div class="audit-step" id="step2">
-        <input type="email" name="email" id="auditEmail" placeholder="Din email" required>
-        <button type="submit" id="auditSubmit">Send rapport</button>
-      </div>
-    </form>
+    </div>
 
     <p class="audit-note r r-d3" id="auditNote">Vi sender rapporten inden for 24 timer. <a href="#faq">Har du sp&oslash;rgsm&aring;l?</a></p>
 
@@ -604,16 +689,25 @@ window.addEventListener('scroll',function(){
   if(stickyCta)stickyCta.classList.toggle('show',window.scrollY>600);
 },{passive:true});
 
-// Audit lead magnet — two-step form
+// Audit lead magnet — live PageSpeed mini-audit
 (function(){
-  var form=document.getElementById('auditForm');
-  if(!form)return;
+  var urlForm=document.getElementById('auditUrlForm');
   var urlInput=document.getElementById('auditUrl');
-  var emailInput=document.getElementById('auditEmail');
-  var nextBtn=document.getElementById('auditNext');
-  var step1=document.getElementById('step1');
-  var step2=document.getElementById('step2');
+  var analyseBtn=document.getElementById('auditAnalyse');
+  var loading=document.getElementById('auditLoading');
+  var loadingText=document.getElementById('auditLoadingText');
+  var errorCard=document.getElementById('auditError');
+  var retryBtn=document.getElementById('auditRetry');
+  var resultsCard=document.getElementById('auditResults');
+  var resultsDomain=document.getElementById('auditResultsDomain');
+  var gaugesWrap=document.getElementById('auditGauges');
+  var metricsWrap=document.getElementById('auditMetrics');
+  var emailForm=document.getElementById('auditEmailForm');
+  var hiddenUrl=document.getElementById('auditHiddenUrl');
   var note=document.getElementById('auditNote');
+  var successCard=document.getElementById('auditSuccess');
+
+  if(!urlForm)return;
 
   function normalizeUrl(v){
     v=v.trim();
@@ -622,18 +716,134 @@ window.addEventListener('scroll',function(){
     return v;
   }
 
-  nextBtn.addEventListener('click',function(){
-    var v=normalizeUrl(urlInput.value);
-    try{new URL(v)}catch(e){urlInput.focus();return}
-    urlInput.value=v;
-    step1.classList.remove('active');
-    step2.classList.add('active');
-    setTimeout(function(){emailInput.focus()},100);
-    if(note)note.textContent='F\u00e5 rapporten sendt direkte til din email';
-  });
+  function extractDomain(url){
+    try{return new URL(url).hostname}catch(e){return url}
+  }
+
+  function scoreColor(s){
+    if(s>=90)return '#1ea83b';
+    if(s>=50)return '#e89a3c';
+    return '#e8453c';
+  }
+
+  function buildGauge(score,label){
+    var r=34,circ=2*Math.PI*r;
+    var offset=circ-(score/100)*circ;
+    var color=scoreColor(score);
+    var div=document.createElement('div');
+    div.className='audit-gauge';
+    div.innerHTML='<svg viewBox="0 0 80 80">'
+      +'<circle class="audit-gauge-bg" cx="40" cy="40" r="'+r+'"/>'
+      +'<circle class="audit-gauge-fill" cx="40" cy="40" r="'+r+'" stroke="'+color+'" stroke-dasharray="'+circ+'" stroke-dashoffset="'+circ+'" transform="rotate(-90 40 40)"/>'
+      +'<text class="audit-gauge-score" x="40" y="45" text-anchor="middle">'+score+'</text>'
+      +'</svg>'
+      +'<div class="audit-gauge-label">'+label+'</div>';
+    // Animate the fill after a tiny delay
+    setTimeout(function(){
+      div.querySelector('.audit-gauge-fill').style.strokeDashoffset=offset;
+    },60);
+    return div;
+  }
+
+  function buildMetric(label,value){
+    var div=document.createElement('div');
+    div.className='audit-metric';
+    div.innerHTML='<div class="audit-metric-value">'+value+'</div><div class="audit-metric-label">'+label+'</div>';
+    return div;
+  }
+
+  function showState(state){
+    urlForm.style.display=(state==='form')?'flex':'none';
+    loading.classList.toggle('show',state==='loading');
+    errorCard.classList.toggle('show',state==='error');
+    resultsCard.classList.toggle('show',state==='results');
+    if(note)note.style.display=(state==='form')?'':'none';
+  }
+
+  function runAudit(){
+    var raw=urlInput.value;
+    var url=normalizeUrl(raw);
+    try{new URL(url)}catch(e){urlInput.focus();return}
+    urlInput.value=url;
+    hiddenUrl.value=url;
+
+    var domain=extractDomain(url);
+    loadingText.textContent='Analyserer '+domain+'...';
+    showState('loading');
+
+    var apiUrl='https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url='
+      +encodeURIComponent(url)
+      +'&category=performance&category=accessibility&category=best-practices&category=seo&strategy=mobile';
+
+    fetch(apiUrl)
+      .then(function(r){
+        if(!r.ok)throw new Error('API error '+r.status);
+        return r.json();
+      })
+      .then(function(data){
+        var lhr=data.lighthouseResult;
+        if(!lhr||!lhr.categories)throw new Error('No data');
+
+        var cats=[
+          {key:'performance',label:'Performance'},
+          {key:'accessibility',label:'Tilg\u00e6ngelighed'},
+          {key:'best-practices',label:'Best Practices'},
+          {key:'seo',label:'SEO'}
+        ];
+
+        gaugesWrap.innerHTML='';
+        cats.forEach(function(c){
+          var catData=lhr.categories[c.key];
+          var score=catData?Math.round(catData.score*100):0;
+          gaugesWrap.appendChild(buildGauge(score,c.label));
+        });
+
+        metricsWrap.innerHTML='';
+        var metricDefs=[
+          {key:'first-contentful-paint',label:'FCP'},
+          {key:'largest-contentful-paint',label:'LCP'},
+          {key:'speed-index',label:'Speed Index'},
+          {key:'cumulative-layout-shift',label:'CLS'}
+        ];
+        metricDefs.forEach(function(m){
+          var audit=lhr.audits[m.key];
+          var val=audit&&audit.displayValue?audit.displayValue:'--';
+          metricsWrap.appendChild(buildMetric(m.label,val));
+        });
+
+        resultsDomain.textContent=domain;
+        showState('results');
+      })
+      .catch(function(){
+        showState('error');
+      });
+  }
+
+  analyseBtn.addEventListener('click',runAudit);
 
   urlInput.addEventListener('keydown',function(e){
-    if(e.key==='Enter'){e.preventDefault();nextBtn.click()}
+    if(e.key==='Enter'){e.preventDefault();runAudit()}
+  });
+
+  retryBtn.addEventListener('click',function(){
+    showState('form');
+    urlInput.value='';
+    urlInput.focus();
+  });
+
+  // Email form: intercept submit, send via FormSubmit, then show success
+  emailForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var formData=new FormData(emailForm);
+    fetch(emailForm.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}})
+      .then(function(){
+        resultsCard.classList.remove('show');
+        successCard.classList.add('show');
+      })
+      .catch(function(){
+        // Fallback: submit natively
+        emailForm.submit();
+      });
   });
 })();
 

@@ -4,175 +4,179 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tak for din henvendelse — Revise</title>
-<meta name="theme-color" content="#f4f1ea">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><rect x='6' y='6' width='68' height='68' fill='%23ffffff' stroke='%231a1714' stroke-width='4' rx='5'/><polygon points='74,6 74,34 46,6' fill='%231a1714' opacity='0.25'/><line x1='46' y1='6' x2='74' y2='34' stroke='%231a1714' stroke-width='2.5' opacity='0.6'/></svg>">
+<meta name="theme-color" content="#f5f5f7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f4f1ea;
-    --fg: #1a1714;
-    --fg-muted: rgba(26,23,20,0.4);
-    --fg-faint: rgba(26,23,20,0.08);
-    --fg-subtle: rgba(26,23,20,0.15);
-    --font-display: 'Instrument Sans', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-  }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+:root{
+  --bg:#f5f5f7;
+  --bg-white:#fff;
+  --bg-subtle:#eeeef0;
+  --border:rgba(0,0,0,.06);
+  --text:#1d1d1f;
+  --text-mid:#6e6e73;
+  --text-light:#86868b;
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'DM Sans',-apple-system,sans-serif;
+}
 
-  html {
-    background: var(--bg);
-    color: var(--fg);
-    min-height: 100vh;
-  }
+html{background:var(--bg);color:var(--text);min-height:100vh}
 
-  body {
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 48px;
-    text-align: center;
-  }
+body{
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:48px 24px;
+  text-align:center;
+}
 
-  /* Noise overlay removed for performance */
+/* ── LOGO ── */
+.logo{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:700;
+  color:var(--text);
+  text-decoration:none;
+  letter-spacing:-.5px;
+  margin-bottom:64px;
+  animation:fadeUp .8s ease both;
+}
 
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 64px;
-    text-decoration: none;
-    color: var(--fg);
-  }
-  .logo svg { width: 32px; height: 32px; }
-  .logo span {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 18px;
-    letter-spacing: -0.3px;
-  }
+/* ── CHECKMARK ── */
+.check{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  border:1.5px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:36px;
+  animation:scaleIn .5s ease both;
+}
+.check svg{
+  width:28px;
+  height:28px;
+  stroke:var(--text);
+  fill:none;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:40;
+  stroke-dashoffset:40;
+  animation:drawCheck .6s ease .4s forwards;
+}
+@keyframes scaleIn{
+  from{transform:scale(.5);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+@keyframes drawCheck{
+  to{stroke-dashoffset:0}
+}
 
-  .check {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    border: 1.5px solid var(--fg-subtle);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 36px;
-    animation: scaleIn 0.5s ease both;
-  }
-  .check svg {
-    width: 28px;
-    height: 28px;
-    stroke: var(--fg);
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 40;
-    stroke-dashoffset: 40;
-    animation: drawCheck 0.6s ease 0.4s forwards;
-  }
-  @keyframes scaleIn {
-    from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  @keyframes drawCheck {
-    to { stroke-dashoffset: 0; }
-  }
+/* ── CONTENT ── */
+h1{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:clamp(32px,5vw,52px);
+  line-height:1.1;
+  letter-spacing:-1.5px;
+  color:var(--text);
+  margin-bottom:16px;
+  animation:fadeUp .8s ease .2s both;
+}
 
-  h1 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(32px, 5vw, 52px);
-    line-height: 1.1;
-    letter-spacing: -1.5px;
-    margin-bottom: 16px;
-    animation: fadeUp 0.8s ease 0.2s both;
-  }
+p{
+  font-family:var(--sans);
+  font-size:17px;
+  color:var(--text-mid);
+  max-width:420px;
+  line-height:1.7;
+  margin-bottom:12px;
+  font-weight:300;
+  animation:fadeUp .8s ease .4s both;
+}
 
-  p {
-    font-size: 17px;
-    opacity: 0.4;
-    max-width: 420px;
-    line-height: 1.7;
-    margin-bottom: 12px;
-    animation: fadeUp 0.8s ease 0.4s both;
-  }
+/* ── TIMELINE DOT ── */
+.timeline{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  color:var(--text-mid);
+  margin:24px 0 48px;
+  animation:fadeUp .8s ease .6s both;
+}
+.timeline .dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#4a8f85;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(74,143,133,.3)}
+  50%{box-shadow:0 0 0 8px rgba(74,143,133,0)}
+}
 
-  .timeline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-display);
-    font-size: 13px;
-    font-weight: 500;
-    opacity: 0.6;
-    margin: 24px 0 48px;
-    animation: fadeUp 0.8s ease 0.6s both;
-  }
-  .timeline .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #4ade80;
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.3); }
-    50% { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
-  }
+/* ── BUTTONS ── */
+.links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
+  animation:fadeUp .8s ease .8s both;
+}
+.links a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 32px;
+  border-radius:100px;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:14px;
+  text-decoration:none;
+  transition:all .25s;
+}
+.link-primary{
+  background:var(--text);
+  color:var(--bg-white);
+}
+.link-primary:hover{opacity:.85;transform:translateY(-1px)}
+.link-secondary{
+  background:transparent;
+  color:var(--text);
+  border:1.5px solid rgba(0,0,0,.15);
+}
+.link-secondary:hover{border-color:var(--text)}
 
-  .links {
-    display: flex;
-    gap: 16px;
-    animation: fadeUp 0.8s ease 0.8s both;
-  }
-  .links a {
-    padding: 14px 28px;
-    border-radius: 6px;
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  .link-primary {
-    background: var(--fg);
-    color: var(--bg);
-  }
-  .link-primary:hover { opacity: 0.85; }
-  .link-secondary {
-    color: var(--fg);
-    border: 1.5px solid var(--fg-subtle);
-  }
-  .link-secondary:hover { border-color: rgba(26,23,20,0.4); }
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+/* ── RESPONSIVE ── */
+@media(max-width:480px){
+  body{padding:40px 20px}
+  .links{flex-direction:column;width:100%;max-width:320px}
+  .links a{justify-content:center;width:100%}
+}
 </style>
 </head>
 <body>
 
-<a href="/" class="logo">
-  <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="6" width="68" height="68" fill="none" stroke="#1a1714" stroke-width="2.8" rx="5"/>
-    <polygon points="74,6 74,34 46,6" fill="#1a1714" opacity="0.18"/>
-    <line x1="46" y1="6" x2="74" y2="34" stroke="#1a1714" stroke-width="2" opacity="0.45"/>
-  </svg>
-  <span>revise</span>
-</a>
+<a href="/" class="logo">revise</a>
 
 <div class="check">
   <svg viewBox="0 0 24 24"><polyline points="6 12 10 16 18 8"/></svg>
@@ -204,6 +208,5 @@
   }
 })();
 </script>
-<script src="cookie-consent.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priser &mdash; Revise | Gennemsigtig priss&aelig;tning for webdesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#f5f5f7;
+  --bg-white:#fff;
+  --bg-subtle:#eeeef0;
+  --border:rgba(0,0,0,.06);
+  --text:#1d1d1f;
+  --text-mid:#6e6e73;
+  --text-light:#86868b;
+  --serif:'Source Serif 4',Georgia,serif;
+  --sans:'DM Sans',-apple-system,sans-serif;
+  --max:1080px;
+}
+
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;width:100%}
+
+/* -- NAV -- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;padding:0 clamp(20px,4vw,48px);transition:all .3s}
+.nav.scrolled{background:rgba(245,245,247,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.5px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:13px;color:var(--text-mid);text-decoration:none;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--text);color:var(--bg);padding:8px 20px;border-radius:100px;font-size:12px;font-weight:600;text-decoration:none;transition:all .2s}
+.nav-cta:hover{opacity:.8}
+
+/* -- HERO -- */
+.hero{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px clamp(20px,4vw,48px) 80px;position:relative;background:linear-gradient(180deg,#f5f5f7 0%,#e8e8ed 100%)}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:60%;height:70%;background:radial-gradient(ellipse,rgba(74,143,133,.06),transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:-10%;width:50%;height:60%;background:radial-gradient(ellipse,rgba(120,100,180,.04),transparent 70%);pointer-events:none}
+.hero-label{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:24px}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.08;letter-spacing:-2px;margin-bottom:20px;max-width:700px}
+.hero-desc{font-size:18px;color:var(--text-mid);line-height:1.7;margin-bottom:0;max-width:520px;font-weight:300}
+
+/* -- SECTION HELPERS -- */
+.s-pad{padding:clamp(80px,10vw,120px) clamp(20px,4vw,48px)}
+.s-inner{max-width:var(--max);margin:0 auto}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-light);margin-bottom:16px}
+.s-h2{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-1px;line-height:1.1;margin-bottom:20px}
+.s-desc{font-size:16px;line-height:1.8;color:var(--text-mid);max-width:480px;font-weight:300}
+
+/* -- BTN -- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s}
+.btn-dark{background:var(--text);color:var(--bg-white)}
+.btn-dark:hover{opacity:.85;transform:translateY(-1px)}
+
+/* -- PRICING CARDS -- */
+.pricing{background:var(--bg-white)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.price-card{background:var(--bg-white);border-radius:20px;padding:40px 32px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1.5px solid var(--border);display:flex;flex-direction:column;position:relative;transition:transform .25s,box-shadow .25s}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.price-card.featured{border:1.5px solid rgba(74,143,133,.3)}
+.price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#4a8f85;color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 16px;border-radius:100px;white-space:nowrap}
+.price-card-tier{font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);margin-bottom:16px}
+.price-card-amount{font-family:var(--serif);font-size:clamp(32px,3.5vw,42px);font-weight:700;letter-spacing:-1px;line-height:1;margin-bottom:4px}
+.price-card-amount span{font-size:16px;font-weight:400;letter-spacing:0;color:var(--text-mid)}
+.price-card-freq{font-size:13px;color:var(--text-light);margin-bottom:16px}
+.price-card-desc{font-size:14px;color:var(--text-mid);line-height:1.7;margin-bottom:28px;flex:1}
+.price-card-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.price-card-features li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-mid)}
+.price-card-features li::before{content:'\2713';color:#4a8f85;font-weight:700;font-size:13px;flex-shrink:0}
+.price-card-cta{display:block;text-align:center;padding:14px 28px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s;border:1.5px solid var(--border);color:var(--text);background:var(--bg-white)}
+.price-card-cta:hover{background:var(--text);color:var(--bg-white);border-color:var(--text)}
+.price-card.featured .price-card-cta{background:var(--text);color:var(--bg-white);border-color:var(--text)}
+.price-card.featured .price-card-cta:hover{opacity:.85;transform:translateY(-1px)}
+
+/* -- CALCULATOR -- */
+.calc{background:var(--bg)}
+.calc-section{margin-top:48px;display:flex;flex-direction:column;gap:40px}
+.calc-step{background:var(--bg-white);border-radius:20px;padding:36px 32px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.calc-step-label{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:6px}
+.calc-step-title{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:20px}
+.calc-options{display:flex;flex-wrap:wrap;gap:10px}
+.calc-opt{display:flex;align-items:center;gap:10px;padding:14px 22px;border-radius:12px;border:1.5px solid var(--border);background:var(--bg-white);cursor:pointer;transition:all .2s;font-family:var(--sans);font-size:14px;font-weight:500;color:var(--text);user-select:none;-webkit-user-select:none}
+.calc-opt:hover{border-color:rgba(0,0,0,.15);background:var(--bg)}
+.calc-opt.selected{background:var(--text);color:var(--bg-white);border-color:var(--text)}
+.calc-opt-price{font-size:12px;font-weight:400;opacity:.6;margin-left:2px}
+.calc-opt.selected .calc-opt-price{opacity:.5}
+.calc-opt input{display:none}
+
+/* -- RESULT CARD -- */
+.calc-result{background:var(--bg-white);border-radius:20px;padding:40px 36px;box-shadow:0 4px 24px rgba(0,0,0,.06);border:1.5px solid var(--border);margin-top:8px}
+.calc-result-title{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:24px}
+.calc-result-items{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.calc-result-item{display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.calc-result-item-label{color:var(--text-mid)}
+.calc-result-item-price{font-weight:600;color:var(--text)}
+.calc-result-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.calc-result-total-label{font-size:14px;color:var(--text-mid)}
+.calc-result-total-price{font-family:var(--serif);font-size:clamp(28px,3vw,38px);font-weight:700;letter-spacing:-1px;color:var(--text);transition:opacity .15s}
+.calc-result-total-price.updating{opacity:.3}
+.calc-result-monthly{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:28px}
+.calc-result-monthly-label{font-size:14px;color:var(--text-mid)}
+.calc-result-monthly-price{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.3px;transition:opacity .15s}
+.calc-result-monthly-price.updating{opacity:.3}
+.calc-result-cta{display:block;text-align:center;padding:16px 32px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;transition:all .25s;background:var(--text);color:var(--bg-white)}
+.calc-result-cta:hover{opacity:.85;transform:translateY(-1px)}
+
+/* -- NOTE -- */
+.note-section{padding:0 clamp(20px,4vw,48px) clamp(40px,5vw,60px)}
+.note-inner{max-width:var(--max);margin:0 auto;text-align:center}
+.note-text{font-size:13px;color:var(--text-light);line-height:1.7}
+
+/* -- CTA -- */
+.cta{background:var(--text);color:var(--bg-white);text-align:center;border-radius:24px;margin:0 clamp(20px,4vw,48px);padding:clamp(60px,8vw,100px) clamp(20px,4vw,48px)}
+.cta-wrap{margin-bottom:clamp(60px,8vw,100px)}
+.cta .s-h2{color:var(--bg-white)}
+.cta .s-desc{color:rgba(255,255,255,.45);margin:0 auto 40px}
+.btn-white{background:var(--bg-white);color:var(--text);padding:16px 36px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+
+/* -- STICKY MOBILE CTA -- */
+.sticky-cta{position:fixed;bottom:16px;left:16px;right:16px;z-index:90;display:none;padding:14px 24px;background:var(--text);color:var(--bg-white);border-radius:100px;text-align:center;font-family:var(--sans);font-size:14px;font-weight:600;text-decoration:none;box-shadow:0 4px 24px rgba(0,0,0,.2);transform:translateY(120%);transition:transform .3s ease}
+.sticky-cta.show{transform:translateY(0)}
+
+/* -- FOOTER -- */
+.footer{padding:32px clamp(20px,4vw,48px)}
+.footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-left{font-size:12px;color:var(--text-light)}
+.footer-right{display:flex;gap:24px}
+.footer-right a{font-size:12px;color:var(--text-light);text-decoration:none;transition:color .2s}
+.footer-right a:hover{color:var(--text)}
+
+/* -- RESPONSIVE -- */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .pricing-grid{grid-template-columns:1fr}
+  .price-card.featured{order:-1}
+  .calc-options{flex-direction:column}
+  .calc-opt{justify-content:space-between}
+  .cta{margin:0 12px;border-radius:20px}
+  .sticky-cta{display:block}
+  .footer{padding-bottom:90px}
+  .hero h1{letter-spacing:-1px}
+  .calc-result{padding:28px 24px}
+}
+@media(min-width:769px) and (max-width:1024px){
+  .pricing-grid{grid-template-columns:1fr 1fr}
+  .pricing-grid .price-card:last-child{grid-column:1/-1;max-width:50%;margin:0 auto}
+}
+
+/* -- REVEAL -- */
+.r{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.25,.1,.25,1),transform .8s cubic-bezier(.25,.1,.25,1)}
+.r.v{opacity:1;transform:none}
+.r-d1{transition-delay:.1s}
+.r-d2{transition-delay:.2s}
+.r-d3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">revise</a>
+    <ul class="nav-links">
+      <li><a href="ydelser.html">Ydelser</a></li>
+      <li><a href="loesninger.html">L&oslash;sninger</a></li>
+      <li><a href="om.html">Om os</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="kontakt.html" class="nav-cta">Start dit projekt</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label r">Priser</div>
+  <h1 class="r r-d1">Gennemsigtighed<br>fra start.</h1>
+  <p class="hero-desc r r-d2">V&aelig;lg den pakke der passer til dit projekt &mdash; eller brug kalkulatoren for et skr&aelig;ddersyet estimat.</p>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="pricing s-pad">
+  <div class="s-inner">
+    <div class="eyebrow r">Pakker</div>
+    <h2 class="s-h2 r">V&aelig;lg din l&oslash;sning.</h2>
+    <p class="s-desc r">Tre pakker der d&aelig;kker de fleste behov. Alle priser er faste &mdash; ingen skjulte omkostninger.</p>
+    <div class="pricing-grid">
+
+      <!-- Basis -->
+      <div class="price-card r">
+        <div class="price-card-tier">Basis</div>
+        <div class="price-card-amount">8.995 <span>kr.</span></div>
+        <div class="price-card-freq">Engangsbetaling</div>
+        <p class="price-card-desc">Perfekt til sm&aring; virksomheder der har brug for en professionel online tilstedev&aelig;relse.</p>
+        <ul class="price-card-features">
+          <li>Op til 5 sider</li>
+          <li>Responsivt design</li>
+          <li>Kontaktformular</li>
+          <li>Basis SEO</li>
+          <li>1 m&aring;neds support</li>
+        </ul>
+        <a href="kontakt.html" class="price-card-cta">Kom i gang &rarr;</a>
+      </div>
+
+      <!-- Standard (featured) -->
+      <div class="price-card featured r r-d1">
+        <div class="price-badge">Mest popul&aelig;r</div>
+        <div class="price-card-tier">Standard</div>
+        <div class="price-card-amount">17.995 <span>kr.</span></div>
+        <div class="price-card-freq">Engangsbetaling</div>
+        <p class="price-card-desc">Til virksomheder der vil skille sig ud med et unikt design og avanceret funktionalitet.</p>
+        <ul class="price-card-features">
+          <li>Op til 12 sider</li>
+          <li>Custom design</li>
+          <li>CMS integration</li>
+          <li>Avanceret SEO</li>
+          <li>Performance optimering</li>
+          <li>3 m&aring;neders support</li>
+        </ul>
+        <a href="kontakt.html" class="price-card-cta">Kom i gang &rarr;</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="price-card r r-d2">
+        <div class="price-card-tier">Premium</div>
+        <div class="price-card-amount">34.995 <span>kr.</span></div>
+        <div class="price-card-freq">Engangsbetaling</div>
+        <p class="price-card-desc">Den komplette l&oslash;sning til virksomheder med store ambitioner og komplekse behov.</p>
+        <ul class="price-card-features">
+          <li>Ubegr&aelig;nset sider</li>
+          <li>Skr&aelig;ddersyet design</li>
+          <li>E-commerce / webapp</li>
+          <li>API integrationer</li>
+          <li>Hosting &amp; drift</li>
+          <li>12 m&aring;neders support</li>
+        </ul>
+        <a href="kontakt.html" class="price-card-cta">Kom i gang &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICE CALCULATOR -->
+<section class="calc s-pad" id="kalkulator">
+  <div class="s-inner">
+    <div class="eyebrow r">Priskalkulator</div>
+    <h2 class="s-h2 r">Beregn dit estimat.</h2>
+    <p class="s-desc r">Tilpas din l&oslash;sning og se en vejledende pris med det samme.</p>
+
+    <div class="calc-section">
+
+      <!-- Step 1: Antal sider -->
+      <div class="calc-step r">
+        <div class="calc-step-label">Trin 1</div>
+        <div class="calc-step-title">Antal sider</div>
+        <div class="calc-options" id="calcPages">
+          <label class="calc-opt selected" data-value="small" data-base="8995">
+            <input type="radio" name="pages" value="small" checked>
+            1&ndash;5 sider
+            <span class="calc-opt-price">8.995 kr.</span>
+          </label>
+          <label class="calc-opt" data-value="medium" data-base="17995">
+            <input type="radio" name="pages" value="medium">
+            6&ndash;12 sider
+            <span class="calc-opt-price">17.995 kr.</span>
+          </label>
+          <label class="calc-opt" data-value="large" data-base="27995">
+            <input type="radio" name="pages" value="large">
+            13+ sider
+            <span class="calc-opt-price">27.995 kr.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 2: Design -->
+      <div class="calc-step r r-d1">
+        <div class="calc-step-label">Trin 2</div>
+        <div class="calc-step-title">Design</div>
+        <div class="calc-options" id="calcDesign">
+          <label class="calc-opt selected" data-value="standard" data-add="0">
+            <input type="radio" name="design" value="standard" checked>
+            Standard design
+            <span class="calc-opt-price">Inkluderet</span>
+          </label>
+          <label class="calc-opt" data-value="custom" data-add="6000">
+            <input type="radio" name="design" value="custom">
+            Custom design
+            <span class="calc-opt-price">+ 6.000 kr.</span>
+          </label>
+          <label class="calc-opt" data-value="premium" data-add="14000">
+            <input type="radio" name="design" value="premium">
+            Premium skr&aelig;ddersyet
+            <span class="calc-opt-price">+ 14.000 kr.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 3: Funktionalitet -->
+      <div class="calc-step r r-d2">
+        <div class="calc-step-label">Trin 3</div>
+        <div class="calc-step-title">Funktionalitet</div>
+        <div class="calc-options" id="calcFeatures">
+          <label class="calc-opt selected" data-value="kontakt" data-add="0">
+            <input type="checkbox" name="features" value="kontakt" checked>
+            Kontaktformular
+            <span class="calc-opt-price">Inkluderet</span>
+          </label>
+          <label class="calc-opt" data-value="cms" data-add="4000">
+            <input type="checkbox" name="features" value="cms">
+            CMS (WordPress/headless)
+            <span class="calc-opt-price">+ 4.000 kr.</span>
+          </label>
+          <label class="calc-opt" data-value="ecommerce" data-add="8000">
+            <input type="checkbox" name="features" value="ecommerce">
+            E-commerce / webshop
+            <span class="calc-opt-price">+ 8.000 kr.</span>
+          </label>
+          <label class="calc-opt" data-value="booking" data-add="5000">
+            <input type="checkbox" name="features" value="booking">
+            Booking system
+            <span class="calc-opt-price">+ 5.000 kr.</span>
+          </label>
+          <label class="calc-opt" data-value="api" data-add="6000">
+            <input type="checkbox" name="features" value="api">
+            API integrationer
+            <span class="calc-opt-price">+ 6.000 kr.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 4: Ekstra -->
+      <div class="calc-step r r-d3">
+        <div class="calc-step-label">Trin 4</div>
+        <div class="calc-step-title">Ekstra</div>
+        <div class="calc-options" id="calcExtras">
+          <label class="calc-opt" data-value="seo" data-add="2995" data-type="once">
+            <input type="checkbox" name="extras" value="seo">
+            SEO optimering
+            <span class="calc-opt-price">+ 2.995 kr.</span>
+          </label>
+          <label class="calc-opt" data-value="hosting" data-add="299" data-type="monthly">
+            <input type="checkbox" name="extras" value="hosting">
+            Hosting &amp; drift
+            <span class="calc-opt-price">+ 299 kr./md.</span>
+          </label>
+          <label class="calc-opt" data-value="vedligeholdelse" data-add="499" data-type="monthly">
+            <input type="checkbox" name="extras" value="vedligeholdelse">
+            Vedligeholdelse
+            <span class="calc-opt-price">+ 499 kr./md.</span>
+          </label>
+          <label class="calc-opt" data-value="logo" data-add="4995" data-type="once">
+            <input type="checkbox" name="extras" value="logo">
+            Logo design
+            <span class="calc-opt-price">+ 4.995 kr.</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="calc-result r">
+        <div class="calc-result-title">Dit estimat</div>
+        <div class="calc-result-items" id="calcSummaryItems">
+          <!-- Filled by JS -->
+        </div>
+        <div class="calc-result-total">
+          <div class="calc-result-total-label">Engangspris</div>
+          <div class="calc-result-total-price" id="calcTotalOnce">8.995 kr.</div>
+        </div>
+        <div class="calc-result-monthly" id="calcMonthlyRow" style="display:none">
+          <div class="calc-result-monthly-label">M&aring;nedlig pris</div>
+          <div class="calc-result-monthly-price" id="calcTotalMonthly">0 kr./md.</div>
+        </div>
+        <a href="kontakt.html" class="calc-result-cta">F&aring; et pr&aelig;cist tilbud &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOTE -->
+<div class="note-section">
+  <div class="note-inner">
+    <p class="note-text r">Alle priser er vejledende og eks. moms. Det endelige tilbud afh&aelig;nger af projektets specifikke krav.</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-wrap">
+<section class="cta">
+  <div class="eyebrow r" style="color:rgba(255,255,255,.3)">Kontakt</div>
+  <h2 class="s-h2 r">Klar til at komme i gang?</h2>
+  <p class="s-desc r" style="color:rgba(255,255,255,.45);margin:0 auto 40px">Fort&aelig;l os om dit projekt &mdash; vi vender tilbage inden for 24 timer med et konkret tilbud.</p>
+  <a href="kontakt.html" class="btn-white r">Kontakt os &rarr;</a>
+</section>
+</div>
+
+<!-- STICKY MOBILE CTA -->
+<a href="kontakt.html" class="sticky-cta" id="stickyCta">Start dit projekt &rarr;</a>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">&copy; 2026 Revise. Alle rettigheder forbeholdes.</div>
+    <div class="footer-right">
+      <a href="mailto:kontakt@revise.dk">kontakt@revise.dk</a>
+      <a href="tel:+4523907290">+45 23 90 72 90</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav blur + sticky mobile CTA
+var nav=document.getElementById('nav');
+var stickyCta=document.getElementById('stickyCta');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>40);
+  if(stickyCta)stickyCta.classList.toggle('show',window.scrollY>600);
+},{passive:true});
+
+// Reveal on scroll
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');ro.unobserve(e.target)}});
+},{threshold:.08,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.r').forEach(function(el){ro.observe(el)});
+
+// -- PRICE CALCULATOR --
+(function(){
+  var labels={
+    small:'1\u20135 sider',medium:'6\u201312 sider',large:'13+ sider',
+    standard:'Standard design',custom:'Custom design',premium:'Premium skr\u00e6ddersyet',
+    kontakt:'Kontaktformular',cms:'CMS (WordPress/headless)',ecommerce:'E-commerce / webshop',booking:'Booking system',api:'API integrationer',
+    seo:'SEO optimering',hosting:'Hosting & drift',vedligeholdelse:'Vedligeholdelse',logo:'Logo design'
+  };
+
+  function formatPrice(n){
+    if(n===0) return '0';
+    var s=String(n);
+    var parts=[];
+    while(s.length>3){parts.unshift(s.slice(-3));s=s.slice(0,-3)}
+    if(s.length)parts.unshift(s);
+    return parts.join('.');
+  }
+
+  // Radio groups (pages, design)
+  function setupRadio(containerId){
+    var container=document.getElementById(containerId);
+    if(!container) return;
+    var opts=container.querySelectorAll('.calc-opt');
+    opts.forEach(function(opt){
+      opt.addEventListener('click',function(){
+        opts.forEach(function(o){o.classList.remove('selected');o.querySelector('input').checked=false});
+        opt.classList.add('selected');
+        opt.querySelector('input').checked=true;
+        recalc();
+      });
+    });
+  }
+
+  // Checkbox groups (features, extras)
+  function setupCheck(containerId){
+    var container=document.getElementById(containerId);
+    if(!container) return;
+    var opts=container.querySelectorAll('.calc-opt');
+    opts.forEach(function(opt){
+      opt.addEventListener('click',function(e){
+        // Allow the checkbox to toggle if clicking directly on it
+        var cb=opt.querySelector('input');
+        // If the click target is not the checkbox itself, toggle manually
+        if(e.target!==cb){
+          cb.checked=!cb.checked;
+        }
+        opt.classList.toggle('selected',cb.checked);
+        recalc();
+      });
+    });
+  }
+
+  setupRadio('calcPages');
+  setupRadio('calcDesign');
+  setupCheck('calcFeatures');
+  setupCheck('calcExtras');
+
+  function recalc(){
+    var items=[];
+    var totalOnce=0;
+    var totalMonthly=0;
+
+    // Pages (base)
+    var pagesContainer=document.getElementById('calcPages');
+    var selPage=pagesContainer.querySelector('.calc-opt.selected');
+    if(selPage){
+      var base=parseInt(selPage.getAttribute('data-base'))||0;
+      totalOnce+=base;
+      items.push({label:labels[selPage.getAttribute('data-value')]||'',price:formatPrice(base)+' kr.',type:'base'});
+    }
+
+    // Design
+    var designContainer=document.getElementById('calcDesign');
+    var selDesign=designContainer.querySelector('.calc-opt.selected');
+    if(selDesign){
+      var add=parseInt(selDesign.getAttribute('data-add'))||0;
+      totalOnce+=add;
+      var dVal=selDesign.getAttribute('data-value');
+      if(add>0){
+        items.push({label:labels[dVal]||'',price:'+ '+formatPrice(add)+' kr.',type:'add'});
+      } else {
+        items.push({label:labels[dVal]||'',price:'Inkluderet',type:'inc'});
+      }
+    }
+
+    // Features
+    var featContainer=document.getElementById('calcFeatures');
+    var checkedFeats=featContainer.querySelectorAll('input:checked');
+    checkedFeats.forEach(function(cb){
+      var opt=cb.closest('.calc-opt');
+      var add=parseInt(opt.getAttribute('data-add'))||0;
+      totalOnce+=add;
+      var val=opt.getAttribute('data-value');
+      if(add>0){
+        items.push({label:labels[val]||'',price:'+ '+formatPrice(add)+' kr.',type:'add'});
+      } else {
+        items.push({label:labels[val]||'',price:'Inkluderet',type:'inc'});
+      }
+    });
+
+    // Extras
+    var extContainer=document.getElementById('calcExtras');
+    var checkedExts=extContainer.querySelectorAll('input:checked');
+    checkedExts.forEach(function(cb){
+      var opt=cb.closest('.calc-opt');
+      var add=parseInt(opt.getAttribute('data-add'))||0;
+      var type=opt.getAttribute('data-type')||'once';
+      var val=opt.getAttribute('data-value');
+      if(type==='monthly'){
+        totalMonthly+=add;
+        items.push({label:labels[val]||'',price:'+ '+formatPrice(add)+' kr./md.',type:'monthly'});
+      } else {
+        totalOnce+=add;
+        items.push({label:labels[val]||'',price:'+ '+formatPrice(add)+' kr.',type:'add'});
+      }
+    });
+
+    // Update summary
+    var summaryEl=document.getElementById('calcSummaryItems');
+    var html='';
+    items.forEach(function(it){
+      html+='<div class="calc-result-item"><span class="calc-result-item-label">'+it.label+'</span><span class="calc-result-item-price">'+it.price+'</span></div>';
+    });
+    summaryEl.innerHTML=html;
+
+    // Update totals with animation
+    var totalOnceEl=document.getElementById('calcTotalOnce');
+    var totalMonthlyEl=document.getElementById('calcTotalMonthly');
+    var monthlyRow=document.getElementById('calcMonthlyRow');
+
+    totalOnceEl.classList.add('updating');
+    totalMonthlyEl.classList.add('updating');
+    setTimeout(function(){
+      totalOnceEl.textContent=formatPrice(totalOnce)+' kr.';
+      totalOnceEl.classList.remove('updating');
+
+      if(totalMonthly>0){
+        monthlyRow.style.display='flex';
+        totalMonthlyEl.textContent=formatPrice(totalMonthly)+' kr./md.';
+      } else {
+        monthlyRow.style.display='none';
+      }
+      totalMonthlyEl.classList.remove('updating');
+    },150);
+  }
+
+  // Initial calc
+  recalc();
+})();
+</script>
+</body>
+</html>
